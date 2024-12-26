@@ -1,0 +1,63 @@
+@use '../base/config.scss' as *;
+@use '../helpers/index.scss' as *;
+
+.header {
+    @include background;
+    backdrop-filter: blur(50px);
+    box-shadow: inset 2px 2px 100px 0 rgba(66, 66, 66, 0.1), inset -2px -2px 100px 0 rgba(255, 255, 255, 0.1);
+
+    &__inner {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+}
+
+.header__menu {
+    &-list {
+        display: flex;
+        gap: var(--indent);
+    }
+
+    &-link {
+        font-weight: 400;
+        font-size: 24px;
+        line-height: 133%;
+        color: var(--schemes-on-background);
+        position: relative;
+        height: 108px;
+        display: inline-flex;
+        align-items: center;
+
+        &::after {
+            content: "";
+            position: absolute;
+            top: 70%;
+            left: 50%;
+            translate: -50%;
+            width: 0;
+            height: 2px;
+            background-color: var(--schemes-on-background);
+            transition-duration: 0.4s;
+        }
+
+        &:hover::after {
+            width: 100%;
+        }
+    }
+}
+
+.header__button {
+    border: 1px solid var(--schemes-on-primary-container);
+    border-radius: 8px;
+    min-width: 285px;
+    height: 60px;
+    background: var(--white);
+
+    font-weight: 400;
+    font-size: 22px;
+    line-height: 127%;
+    color: var(--schemes-on-primary-container);
+
+    @include flex-center;
+}
