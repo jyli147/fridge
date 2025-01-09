@@ -33,7 +33,7 @@ body {
 .hero-inner {
   max-width: calc(var(--container-width) + var(--container-padding-x) * 2);
   margin-inline: auto;
-  padding: 48px var(--container-padding-x) 24px var(--container-padding-x);
+  padding: 0 var(--container-padding-x) 24px var(--container-padding-x);
 }
 
 .inner {
