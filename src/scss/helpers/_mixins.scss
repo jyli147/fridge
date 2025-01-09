@@ -3,6 +3,7 @@
 
 @mixin fluid-text($max: 48, $min: 16) {
     font-size: fluid($max, $min);
+    width: fluid($max, $min);
 }
 
 @mixin hide {
@@ -71,7 +72,8 @@
 }
 
 @mixin background {
-    background-repeat: no-repeat;
+    background-image: url(../img/bg.png);
+    background-repeat: repeat;
     background-size: cover;
 }
 

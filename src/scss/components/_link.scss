@@ -13,7 +13,7 @@
     background: var(--schemes-primary);
     border-radius: 12px;
     min-width: 300px;
-    height: 80px;
+    min-height: 80px;
 
     font-weight: 400;
     font-size: 24px;
@@ -21,6 +21,16 @@
     color: var(--schemes-on-primary);
 
     @include flex-center;
+
+    @include mobile {
+        border-radius: 8px;
+        min-width: 192px;
+        min-height: 46px;
+
+        font-size: 18px;
+        line-height: 122%;
+        letter-spacing: 0em;
+    }
 }
 
 .link-right {
@@ -28,7 +38,7 @@
     border: 2px solid var(--schemes-primary);
     border-radius: 12px;
     min-width: 300px;
-    height: 80px;
+    min-height: 80px;
 
     font-weight: 400;
     font-size: 24px;
@@ -36,4 +46,14 @@
     color: var(--schemes-primary);
 
     @include flex-center;
+
+    @include mobile {
+        border-radius: 8px;
+        min-width: 192px;
+        min-height: 46px;
+
+        font-size: 18px;
+        line-height: 122%;
+        letter-spacing: 0em;
+    }
 }

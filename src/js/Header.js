@@ -9,6 +9,7 @@ class Header {
     priceButton: "[data-js-header-price]",
     navActive: "[data-js-header-overlay-nav-isActive]",
     nav: "[data-js-header-overlay-nav]",
+    price: "[data-js-price]",
   };
 
   stateClasses = {
@@ -29,6 +30,7 @@ class Header {
     );
     this.navElement = this.rootElement.querySelector(this.selectors.nav);
     this.bindEvents();
+    this.priceElement = document.querySelector(this.selectors.price);
   }
 
   onBurgerButtonClick() {
@@ -75,6 +77,7 @@ class Header {
       .addEventListener("click", () => {
         this.scrollToSection(".price");
         this.overlayElement.classList.remove(this.stateClasses.isActive);
+        // this.priceElement.classList.add("padding");
       });
   }
 }
@@ -105,3 +108,19 @@ document.getElementById("modal").addEventListener("click", (e) => {
   if (e._isClickWithInModal) return;
   e.currentTarget.classList.remove("open");
 });
+const input = document.getElementById("name");
+const nameLabel = document.querySelector("[data-js-name]");
+const svgIcon = document.querySelector("[data-js-name-svg]");
+
+function toggleVisibility() {
+  if (input.value.trim() !== "") {
+    nameLabel.style.display = "none";
+    svgIcon.style.display = "none";
+  } else {
+    nameLabel.style.display = "block";
+    svgIcon.style.display = "block";
+  }
+}
+
+input.addEventListener("input", toggleVisibility);
+toggleVisibility(); // Initial check

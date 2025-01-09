@@ -3,15 +3,24 @@
 
 .header {
     @include background;
-    backdrop-filter: blur(50px);
-    box-shadow: inset 2px 2px 100px 0 rgba(66, 66, 66, 0.1), inset -2px -2px 100px 0 rgba(255, 255, 255, 0.1);
 
+    & {
+        position: sticky;
+        top: 0;
+        width: 100%;
+        z-index: 1000;
+    }
 
     &__inner {
         display: flex;
         justify-content: space-between;
         align-items: center;
         height: 108px;
+        padding: 0 15px;
+
+        @include desktop-xl {
+            height: 94px;
+        }
     }
 }
 
@@ -123,6 +132,14 @@
     color: var(--schemes-on-primary-container);
 
     @include flex-center;
+
+    @include desktop-xl {
+        font-size: 18px;
+        line-height: 122%;
+        letter-spacing: 0em;
+        min-width: 230px;
+        height: 46px;
+    }
 
     @include tablet {
         order: -1;

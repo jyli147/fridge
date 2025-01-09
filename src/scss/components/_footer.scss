@@ -1,0 +1,15 @@
+@use '../base/config.scss' as *;
+@use '../helpers/index.scss' as *;
+
+.footer {
+    @include background;
+    padding: 24px 0;
+
+    &__text {
+        font-weight: 400;
+        font-size: 20px;
+        line-height: 120%;
+        color: #154c8d;
+        text-align: center;
+    }
+}

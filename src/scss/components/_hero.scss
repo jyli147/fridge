@@ -1,11 +1,19 @@
 @use '../base/config.scss' as *;
 @use '../helpers/index.scss' as *;
 
+.hero-bg {
+    @include background;
+}
+
 .hero {
-    min-height: calc(100vh - 108px);
+    min-height: 100vh;
     display: flex;
     flex-direction: column;
     justify-content: space-around;
+}
+
+.hero__inner-card {
+    margin: 48px 0;
 }
 
 .title {
@@ -15,6 +23,11 @@
     text-align: center;
     color: var(--schemes-on-background);
     font-size: 57px;
+
+    @include mobile {
+        font-size: 32px;
+        line-height: 125%;
+    }
 }
 
 .subtitle {
@@ -24,6 +37,11 @@
     color: var(--schemes-on-background);
     padding-top: var(--indent);
     font-size: 28px;
+
+    @include mobile {
+        font-size: 20px;
+        line-height: 120%;
+    }
 }
 
 .logos {
@@ -49,6 +67,16 @@
     --marquee-item-height: 100px;
     --marquee-duration: 24s;
     --marquee-items: 7;
+
+    @include desktop-xl {
+        --marquee-item-width: 20px;
+        --marquee-item-height: 50px;
+    }
+
+    @include mobile-s {
+        --marquee-item-width: 80px;
+        --marquee-item-height: 50px;
+    }
 }
 
 .marquee__item {
@@ -58,7 +86,17 @@
     position: absolute;
     inset-inline-start: var(--marquee-item-offset);
     transform: translateX(-50%);
-    animation: go linear var(--marquee-duration) var(--marquee-delay, 0s) infinite;
+    animation: go linear reverse var(--marquee-duration) var(--marquee-delay, 0s) infinite;
+
+    @include desktop-xl {
+        width: 108px;
+    }
+
+    @include mobile-xs {
+        width: 72px;
+        height: 50px;
+    }
+
 }
 
 
@@ -142,6 +180,16 @@
     --marquee-item-height: 100px;
     --marquee-duration: 24s;
     --marquee-items-b: 7;
+
+    @include desktop-xl {
+        --marquee-item-width: 20px;
+        --marquee-item-height: 50px;
+    }
+
+    @include mobile-s {
+        --marquee-item-width: 80px;
+        --marquee-item-height: 50px;
+    }
 }
 
 .marquee__item-b {
@@ -152,6 +200,15 @@
     inset-inline-start: var(--marquee-item-offset);
     transform: translateX(-50%);
     animation: goB linear var(--marquee-duration) var(--marquee-delay, 0s) infinite;
+
+    @include desktop-xl {
+        width: 108px;
+    }
+
+    @include mobile-xs {
+        width: 72px;
+        height: 50px;
+    }
 }
 
 .marquee__item-b:nth-child(7n) {

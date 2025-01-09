@@ -9,21 +9,20 @@
     display: grid;
     grid-template-columns: 1fr 1fr;
     gap: var(--indent);
+
+    @include tablet {
+        grid-template-columns: 1fr;
+    }
 }
 
 .questions__card {
     border-radius: 24px;
     padding: 24px;
 
-
     background: var(--white);
     box-shadow: 0 1px 4px 0 rgba(12, 12, 13, 0.05);
 
     @include flex-center;
-
-    &:hover {
-        @include hover-card;
-    }
 
     & {
         gap: 12px;
@@ -34,11 +33,26 @@
         align-items: flex-start;
     }
 
+    @include mobile {
+        align-items: center;
+    }
+
     &-question {
         font-weight: 400;
         font-size: 32px;
         line-height: 125%;
         color: var(--color-theme-black);
+        text-align: center;
+
+        @include tablet {
+            text-align: start;
+        }
+
+        @include mobile {
+            text-align: center;
+            font-size: 24px;
+            line-height: 133%;
+        }
     }
 
     &-answer {
@@ -46,6 +60,17 @@
         font-size: 24px;
         line-height: 133%;
         color: var(--color-theme-black);
-        max-width: 446px;
+        text-align: center;
+
+        @include tablet {
+            text-align: start;
+        }
+
+        @include mobile {
+            text-align: center;
+            font-size: 18px;
+            line-height: 122%;
+            letter-spacing: 0em;
+        }
     }
 }
