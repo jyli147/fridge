@@ -6,7 +6,7 @@
 }
 
 .hero {
-    min-height: 100vh;
+    min-height: calc(100vh - 108px);
     display: flex;
     flex-direction: column;
     justify-content: space-around;
@@ -68,7 +68,7 @@
     --marquee-duration: 24s;
     --marquee-items: 7;
 
-    @include desktop-xl {
+    @include tablet {
         --marquee-item-width: 20px;
         --marquee-item-height: 50px;
     }
@@ -88,7 +88,7 @@
     transform: translateX(-50%);
     animation: go linear reverse var(--marquee-duration) var(--marquee-delay, 0s) infinite;
 
-    @include desktop-xl {
+    @include tablet {
         width: 108px;
     }
 
@@ -181,7 +181,7 @@
     --marquee-duration: 24s;
     --marquee-items-b: 7;
 
-    @include desktop-xl {
+    @include tablet {
         --marquee-item-width: 20px;
         --marquee-item-height: 50px;
     }
@@ -201,7 +201,7 @@
     transform: translateX(-50%);
     animation: goB linear var(--marquee-duration) var(--marquee-delay, 0s) infinite;
 
-    @include desktop-xl {
+    @include tablet {
         width: 108px;
     }
 
