@@ -20,13 +20,13 @@ class Header {
   constructor() {
     this.rootElement = document.querySelector(this.selectors.root);
     this.overlayElement = this.rootElement.querySelector(
-      this.selectors.overlay,
+      this.selectors.overlay
     );
     this.burgerButtonElement = this.rootElement.querySelector(
-      this.selectors.burgerButton,
+      this.selectors.burgerButton
     );
     this.navActiveElement = this.rootElement.querySelector(
-      this.selectors.navActive,
+      this.selectors.navActive
     );
     this.navElement = this.rootElement.querySelector(this.selectors.nav);
     this.bindEvents();
@@ -51,7 +51,7 @@ class Header {
 
   bindEvents() {
     this.burgerButtonElement.addEventListener("click", () =>
-      this.onBurgerButtonClick(),
+      this.onBurgerButtonClick()
     );
 
     this.rootElement
@@ -90,7 +90,7 @@ document.querySelectorAll("[data-js-button]").forEach((button) => {
     document.getElementById("modal").classList.add("open");
     categoriesAddTask.addEventListener(
       "click",
-      categoryLinkedCategoryForAddTask,
+      categoryLinkedCategoryForAddTask
     );
   });
 });
@@ -108,6 +108,7 @@ document.getElementById("modal").addEventListener("click", (e) => {
   if (e._isClickWithInModal) return;
   e.currentTarget.classList.remove("open");
 });
+
 const input = document.getElementById("name");
 const nameLabel = document.querySelector("[data-js-name]");
 const svgIcon = document.querySelector("[data-js-name-svg]");
