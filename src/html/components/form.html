@@ -4,6 +4,7 @@
     <label class="data__form-overtext" for="tel"
       >Номер телефона
       <input
+        data-js-input
         class="input"
         id="tel"
         name="tel"
@@ -16,6 +17,9 @@
         maxlength="14"
       />
       <label for="tel" class="data__form-placeholder">
+        <span data-js-name> +7 (999) 888-99-99</span>
+      </label>
+      <span class="data__form-svg">
         <svg
           width="36"
           height="36"
@@ -28,14 +32,14 @@
             fill="#535F70"
           />
         </svg>
-        <span> +7 (999) 888-99-99</span>
-      </label>
+      </span>
     </label>
   </p>
   <p class="field">
     <label class="data__form-overtext" for="name"
       >Имя
       <input
+        data-js-input
         class="data__form-input"
         name="name"
         id="name"
@@ -48,9 +52,12 @@
         maxlength="32"
         autocomplete="off"
       />
+
       <label for="tel" class="data__form-placeholder">
-        <svg
-          data-js-name-svg
+        <span data-js-name>Ваше имя</span>
+      </label>
+      <span class="data__form-svg"
+        ><svg
           width="36"
           height="36"
           viewBox="0 0 37 37"
@@ -62,8 +69,7 @@
             fill="#535F70"
           />
         </svg>
-        <span data-js-name>Ваше имя</span>
-      </label>
+      </span>
     </label>
   </p>
 

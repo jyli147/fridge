@@ -47,6 +47,10 @@
 
     @include flex-center;
 
+    & {
+        @include transition;
+    }
+
     @include mobile {
         padding: 16px 12px;
     }

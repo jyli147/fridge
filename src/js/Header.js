@@ -109,19 +109,20 @@ document.getElementById("modal").addEventListener("click", (e) => {
   e.currentTarget.classList.remove("open");
 });
 
-const input = document.getElementById("name");
-const nameLabel = document.querySelector("[data-js-name]");
-const svgIcon = document.querySelector("[data-js-name-svg]");
+const inputs = document.querySelectorAll("[data-js-input]");
+const nameLabels = document.querySelectorAll("[data-js-name]");
 
 function toggleVisibility() {
-  if (input.value.trim() !== "") {
-    nameLabel.style.display = "none";
-    svgIcon.style.display = "none";
-  } else {
-    nameLabel.style.display = "block";
-    svgIcon.style.display = "block";
-  }
+  inputs.forEach((input, index) => {
+    if (input.value.trim() !== "") {
+      nameLabels[index].style.display = "none";
+    } else {
+      nameLabels[index].style.display = "block";
+    }
+  });
 }
 
-input.addEventListener("input", toggleVisibility);
-toggleVisibility(); // Initial check
+inputs.forEach((input) => {
+  input.addEventListener("input", toggleVisibility);
+});
+toggleVisibility();

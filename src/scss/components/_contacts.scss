@@ -57,6 +57,7 @@
     gap: 6px;
     flex-direction: column;
     flex: 0 1 100%;
+    @include transition;
 
     &:hover {
         @include hover-card;

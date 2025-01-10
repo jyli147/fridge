@@ -38,9 +38,7 @@
         transition-duration: 0.3s;
 
         display: flex;
-        flex-direction: column;
         justify-content: center;
-        align-items: center;
         gap: 24px;
         z-index: 99;
 
@@ -116,6 +114,11 @@
         font-size: 32px;
         line-height: 125%;
         color: var(--schemes-on-primary-container);
+        display: flex;
+        align-items: center;
+        justify-content: space-around;
+        flex-direction: column;
+        gap: 50px;
     }
 }
 

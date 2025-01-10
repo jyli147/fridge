@@ -37,6 +37,10 @@
 
     @include flex-center;
 
+    & {
+        @include transition;
+    }
+
     &:hover {
         @include hover-card;
     }
@@ -79,8 +83,6 @@
         line-height: 133%;
         color: var(--color-theme-black);
     }
-
-
 
     &-link {
         font-weight: 400;

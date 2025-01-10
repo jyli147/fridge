@@ -39,7 +39,7 @@
     border: 0;
     border: 2px solid var(--schemes-secondary);
     border-radius: 12px;
-    padding: 12px;
+    padding: 12px 12px 12px 60px;
     height: 60px;
     width: 533px;
 
@@ -47,7 +47,6 @@
     font-size: 24px;
     line-height: 133%;
     color: var(--schemes-secondary);
-    cursor: pointer;
     outline: none;
     appearance: none;
     transition: border 0.3s;
@@ -64,11 +63,15 @@
     border: 2px solid var(--schemes-border);
 }
 
+.input:focus+.data__form-placeholder {
+    @include hide;
+}
+
 .data__form-input {
     border: 0;
     border: 2px solid var(--schemes-secondary);
     border-radius: 12px;
-    padding: 12px;
+    padding: 12px 12px 12px 60px;
     height: 60px;
     width: 533px;
 
@@ -76,7 +79,6 @@
     font-size: 24px;
     line-height: 133%;
     color: var(--schemes-secondary);
-    cursor: pointer;
     outline: none;
     appearance: none;
     transition: border 0.3s;
@@ -97,26 +99,6 @@
     @include hide;
 }
 
-/**
-.input::placeholder {
-    color: var(--white);
-    opacity: 0;
-    transition: opacity 0.2s;
-}
-
-.input:focus::placeholder {
-    color: var(--mid-grey);
-    opacity: 1;
-}
-
-.input:focus,
-.input:valid {
-    background-color: var(--white);
-    border: 2px solid var(--mid-grey);
-    padding-top: 28px;
-}
-*/
-
 .data__form-overtext {
     font-weight: 500;
     font-size: 14px;
@@ -124,14 +106,13 @@
     letter-spacing: 0.01em;
     color: var(--schemes-secondary);
     padding-bottom: 8px;
-    cursor: pointer;
     position: relative;
 }
 
 .data__form-placeholder {
     display: block;
     position: absolute;
-    left: 12px;
+    left: 60px;
     top: 35px;
     font-weight: 400;
     font-size: 24px;
@@ -157,14 +138,11 @@
     }
 }
 
-
-.input:focus+.data__form-placeholder,
-.input:valid+.data__form-placeholder,
-.input:user-valid+.data__form-placeholder,
-.input:user-invalid+.data__form-placeholder {
-    @include hide;
+.data__form-svg {
+    position: absolute;
+    top: 32px;
+    left: 12px;
 }
-
 
 .input:user-valid {
     border: 2px solid var(--light-gray);
@@ -173,15 +151,6 @@
 .input:user-invalid {
     border: 2px solid var(--dangerous);
 }
-
-/**
-.input:user-invalid+.data__form-placeholder {
-    top: 8px;
-    font-size: 14px;
-    line-height: 171%;
-    color: var(--gray);
-}
-*/
 
 .button {
     background: var(--schemes-primary);
