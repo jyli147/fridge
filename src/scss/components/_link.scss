@@ -19,6 +19,7 @@
     font-size: 22px;
     line-height: 127%;
     color: var(--schemes-on-primary);
+    cursor: pointer;
 
     @include flex-center;
 
@@ -44,6 +45,7 @@
     font-size: 22px;
     line-height: 127%;
     color: var(--schemes-primary);
+    cursor: pointer;
 
     @include flex-center;
 
