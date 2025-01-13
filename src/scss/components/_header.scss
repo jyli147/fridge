@@ -15,11 +15,11 @@
         display: flex;
         justify-content: space-between;
         align-items: center;
-        height: 108px;
+        height: 94px;
         padding: 0 15px;
 
-        @include desktop-xl {
-            height: 94px;
+        @include mobile {
+            height: 96px;
         }
     }
 }
@@ -73,13 +73,17 @@
         line-height: 133%;
         color: var(--schemes-on-background);
         position: relative;
-        height: 108px;
+        height: 94px;
         display: inline-flex;
         align-items: center;
 
         @include tablet {
             height: 50px;
             text-align: center;
+        }
+
+        @include mobile {
+            height: 96px;
         }
 
         &::after {
@@ -125,24 +129,16 @@
 .header__button {
     border: 1px solid var(--schemes-on-primary-container);
     border-radius: 8px;
-    min-width: 285px;
-    height: 60px;
     background: var(--white);
 
-    font-weight: 400;
-    font-size: 22px;
-    line-height: 127%;
+    font-size: 18px;
+    line-height: 122%;
+    letter-spacing: 0em;
+    min-width: 230px;
+    height: 46px;
     color: var(--schemes-on-primary-container);
 
     @include flex-center;
-
-    @include desktop-xl {
-        font-size: 18px;
-        line-height: 122%;
-        letter-spacing: 0em;
-        min-width: 230px;
-        height: 46px;
-    }
 
     @include tablet {
         order: -1;

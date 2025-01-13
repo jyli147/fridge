@@ -41,7 +41,6 @@
     flex: 0 1 50%;
     border-radius: 24px;
     padding: 24px;
-    box-shadow: 0 1px 4px 0 rgba(12, 12, 13, 0.05), 0 1px 4px 0 rgba(12, 12, 13, 0.1);
     background: var(--white);
 
 
@@ -49,6 +48,10 @@
 
     & {
         @include transition;
+    }
+
+    & {
+        @include card;
     }
 
     @include mobile {

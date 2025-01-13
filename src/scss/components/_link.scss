@@ -12,12 +12,12 @@
 .link-left {
     background: var(--schemes-primary);
     border-radius: 12px;
-    min-width: 300px;
-    min-height: 80px;
+    min-width: 288px;
+    min-height: 78px;
 
     font-weight: 400;
-    font-size: 24px;
-    line-height: 133%;
+    font-size: 22px;
+    line-height: 127%;
     color: var(--schemes-on-primary);
 
     @include flex-center;
@@ -37,12 +37,12 @@
     background: var(--schemes-on-primary);
     border: 2px solid var(--schemes-primary);
     border-radius: 12px;
-    min-width: 300px;
-    min-height: 80px;
+    min-width: 288px;
+    min-height: 78px;
 
     font-weight: 400;
-    font-size: 24px;
-    line-height: 133%;
+    font-size: 22px;
+    line-height: 127%;
     color: var(--schemes-primary);
 
     @include flex-center;
