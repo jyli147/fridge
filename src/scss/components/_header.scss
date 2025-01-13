@@ -83,7 +83,7 @@
         }
 
         @include mobile {
-            height: 96px;
+            height: 50px;
         }
 
         &::after {
@@ -123,6 +123,15 @@
         justify-content: space-around;
         flex-direction: column;
         gap: 50px;
+    }
+}
+
+.link-mobile {
+    @include tablet {
+        min-width: 269px;
+        min-height: 46px;
+        font-size: 18px;
+        line-height: 122%;
     }
 }
 
