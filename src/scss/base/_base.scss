@@ -21,26 +21,38 @@ body {
 }
 
 .container {
-  max-width: calc(var(--container-width) + var(--container-padding-x) * 2);
+  max-width: calc(var(--container-width) + var(--container-padding-d) * 2);
   margin-inline: auto;
-  padding: 108px var(--container-padding-x) 24px var(--container-padding-x);
+  padding: 108px var(--container-padding-d) 48px var(--container-padding-d);
 
-  @include desktop-xl {
-    padding: 94px var(--container-padding-x) 24px var(--container-padding-x);
+  @include tablet {
+    padding: 94px var(--container-padding-t) 36px var(--container-padding-t);
+  }
+
+  @include mobile {
+    padding: 96px var(--container-padding-m) 32px var(--container-padding-m);
   }
 }
 
 .hero-inner {
-  max-width: calc(var(--container-width) + var(--container-padding-x) * 2);
+  max-width: calc(var(--container-width) + var(--container-padding-d) * 2);
   margin-inline: auto;
-  padding: 0 var(--container-padding-x) 24px var(--container-padding-x);
+  padding: 96px var(--container-padding-d) 48px var(--container-padding-d);
+
+  @include tablet {
+    padding: 36px var(--container-padding-t) 36px var(--container-padding-t);
+  }
+
+  @include mobile {
+    padding: 16px var(--container-padding-m) 32px var(--container-padding-m);
+  }
 }
 
 .inner {
   min-height: 100vh;
   display: flex;
   flex-direction: column;
-  justify-content: space-around;
+  justify-content: space-between;
 }
 
 .inner-card {

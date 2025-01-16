@@ -11,7 +11,7 @@
     justify-content: center;
     gap: 56px;
 
-    @include desktop-xl {
+    @include desktop {
         gap: 14px;
     }
 }
@@ -22,7 +22,7 @@
     flex-direction: row;
     gap: 56px;
 
-    @include desktop-xl {
+    @include desktop {
         gap: 14px;
     }
 
@@ -32,7 +32,7 @@
 }
 
 .card-wrap {
-    @include desktop-xl {
+    @include desktop {
         flex-wrap: wrap;
     }
 }
@@ -93,6 +93,13 @@
             width: 36px;
             height: 36px;
         }
+
+        @include mobile-xxs {
+            width: 242px;
+            text-align: center;
+            align-items: center;
+            justify-content: center;
+        }
     }
 
     &-subtitle {
@@ -101,28 +108,53 @@
         line-height: 127%;
         text-align: center;
         color: var(--color-theme-sys-light-on-primary-container);
+
+        @include mobile-xxs {
+            text-align: center;
+        }
     }
 
     &-link {
         font-weight: 400;
         font-size: 24px;
         line-height: 133%;
-        text-decoration: underline;
-        text-decoration-skip-ink: none;
         color: var(--schemes-primary);
+        position: relative;
+
+        &::after {
+            content: "";
+            position: absolute;
+            top: 28px;
+            left: 50%;
+            translate: -50%;
+            width: 0;
+            height: 2px;
+            background-color: var(--schemes-primary);
+            transition-duration: 0.4s;
+        }
+
+        &:hover::after {
+            width: 100%;
+        }
+
+        @include mobile-xxs {
+            text-align: center;
+            font-size: 23px;
+        }
     }
 }
 
-@include desktop-xl {
+@include desktop {
     .card-first {
-        flex: 0 1 49.2%;
+        flex: 0 1 48.2%;
     }
 
     .card-child {
-        flex: 0 1 49.2%;
+        flex: 0 1 48.2%;
     }
 
     .card-last {
         flex: 0 1 100%;
+        flex-wrap: wrap;
     }
 }

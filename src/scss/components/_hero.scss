@@ -9,7 +9,7 @@
     min-height: calc(100vh - 108px);
     display: flex;
     flex-direction: column;
-    justify-content: space-around;
+    justify-content: space-between;
 }
 
 .hero__inner-card {
@@ -28,6 +28,11 @@
         font-size: 32px;
         line-height: 125%;
     }
+
+    @include mobile-xxs {
+        font-size: 26px;
+        line-height: 106%;
+    }
 }
 
 .subtitle {
@@ -42,6 +47,43 @@
         font-size: 20px;
         line-height: 120%;
     }
+
+    @include mobile-xxs {
+        font-size: 17px;
+        line-height: 107%;
+    }
+}
+
+.logos-mobile {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    padding: 24px;
+    background: var(--white);
+    gap: var(--indent);
+    max-width: 725px;
+    height: 320px;
+    flex: 0 1 100%;
+    overflow: hidden;
+}
+
+.item {
+    max-width: 108px;
+    height: 50px;
+
+    @include mobile-xxs {
+        max-width: 72px;
+    }
+}
+
+.item-l {
+    max-width: 108px;
+    height: 50px;
+
+    @include mobile-xxs {
+        max-width: 72px;
+    }
 }
 
 .logos {
@@ -52,7 +94,7 @@
 .marquee-top {
     display: flex;
     block-size: var(--marquee-item-height);
-    margin-block: var(--indent);
+    margin: 48px 24px 24px 24px;
     position: relative;
     overflow-x: hidden;
     mask-image: linear-gradient(to right,
@@ -69,14 +111,10 @@
     --marquee-items: 7;
 
     @include tablet {
-        --marquee-item-width: 20px;
-        --marquee-item-height: 50px;
+        --marquee-item-width: 108px;
+        --marquee-item-height: 100px;
     }
 
-    @include mobile-s {
-        --marquee-item-width: 80px;
-        --marquee-item-height: 50px;
-    }
 }
 
 .marquee__item {
@@ -90,11 +128,7 @@
 
     @include tablet {
         width: 108px;
-    }
-
-    @include mobile-xs {
-        width: 72px;
-        height: 50px;
+        height: 100px;
     }
 
 }
@@ -165,7 +199,7 @@
 .marquee-bottom {
     display: flex;
     block-size: var(--marquee-item-height);
-    margin-block: 0 var(--indent);
+    margin: 0 24px 48px 24px;
     position: relative;
     overflow-x: hidden;
     mask-image: linear-gradient(to right,
@@ -182,14 +216,10 @@
     --marquee-items-b: 7;
 
     @include tablet {
-        --marquee-item-width: 20px;
-        --marquee-item-height: 50px;
+        --marquee-item-width: 108px;
+        --marquee-item-height: 100px;
     }
 
-    @include mobile-s {
-        --marquee-item-width: 80px;
-        --marquee-item-height: 50px;
-    }
 }
 
 .marquee__item-b {
@@ -203,12 +233,9 @@
 
     @include tablet {
         width: 108px;
+        height: 100px;
     }
 
-    @include mobile-xs {
-        width: 72px;
-        height: 50px;
-    }
 }
 
 .marquee__item-b:nth-child(7n) {

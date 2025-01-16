@@ -7,41 +7,29 @@
     line-height: 133%;
     color: var(--color-theme-black);
     padding-bottom: 24px;
-
     text-align: center;
 
-    @include mobile {
+    @include tablet {
         font-size: 20px;
         line-height: 140%;
     }
 }
 
 .data__form {
-    @include flex-center;
+    display: flex;
 
     & {
         flex-direction: column;
         gap: 24px;
     }
 
-    @include mobile {
-        max-width: 376px;
-        gap: 12px;
-    }
-
-}
-
-.field {
-    max-width: 533px;
 }
 
 .input {
-    border: 0;
     border: 2px solid var(--schemes-secondary);
     border-radius: 12px;
-    padding: 12px 12px 12px 60px;
-    height: 60px;
-    width: 533px;
+    padding: 12px 12px 12px 57px;
+    min-height: 60px;
 
     font-weight: 400;
     font-size: 24px;
@@ -50,12 +38,6 @@
     outline: none;
     appearance: none;
     transition: border 0.3s;
-
-    @include mobile {
-        padding: 6px 12px;
-        width: 376px;
-        height: 48px;
-    }
 }
 
 .input:focus {
@@ -68,12 +50,11 @@
 }
 
 .data__form-input {
-    border: 0;
     border: 2px solid var(--schemes-secondary);
     border-radius: 12px;
-    padding: 12px 12px 12px 60px;
-    height: 60px;
-    width: 533px;
+    padding: 12px 12px 12px 57px;
+    min-height: 60px;
+    flex: 0 1 100%;
 
     font-weight: 400;
     font-size: 24px;
@@ -82,12 +63,6 @@
     outline: none;
     appearance: none;
     transition: border 0.3s;
-
-    @include mobile {
-        padding: 6px 12px;
-        width: 376px;
-        height: 48px;
-    }
 
     &:focus {
         cursor: text;
@@ -105,42 +80,39 @@
     line-height: 143%;
     letter-spacing: 0.01em;
     color: var(--schemes-secondary);
-    padding-bottom: 8px;
     position: relative;
+
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    max-width: 533px;
+
+    @include tablet {
+        max-width: 832px;
+    }
 }
 
 .data__form-placeholder {
     display: block;
     position: absolute;
-    left: 60px;
-    top: 35px;
+    left: 57px;
+    top: 41px;
     font-weight: 400;
     font-size: 24px;
     line-height: 133%;
     color: var(--schemes-secondary);
     pointer-events: none;
 
-    @include flex-center;
-
-    @include mobile {
-        top: 27px;
-    }
-
     span {
         padding-left: 12px;
         text-align: center;
         padding-bottom: 3px;
-
-        @include mobile {
-            font-size: 20px;
-            line-height: 140%;
-        }
     }
 }
 
 .data__form-svg {
     position: absolute;
-    top: 32px;
+    top: 40px;
     left: 12px;
 }
 
@@ -153,25 +125,58 @@
 }
 
 .button {
+    flex: 0 1 100%;
     background: var(--schemes-primary);
     border-radius: 12px;
     padding: 16px;
-    min-width: 533px;
     min-height: 76px;
     font-weight: 400;
     font-size: 22px;
     line-height: 127%;
     color: var(--schemes-on-primary);
     text-align: center;
-    display: flex;
-    align-items: center;
-    justify-content: center;
     cursor: pointer;
+    @include flex-center;
+}
 
+.mobile-form {
     @include mobile {
-        border-radius: 8px;
-        padding: 12px;
-        min-width: 376px;
+        gap: 12px;
+    }
+}
+
+.mobile-input {
+    @include mobile {
+        min-height: 48px;
+        padding: 6px 6px 6px 57px;
+    }
+}
+
+.mobile-button {
+    @include mobile {
         min-height: 46px;
+        padding: 12px;
+        font-size: 18px;
+        line-height: 122%;
+        letter-spacing: 0em;
+    }
+}
+
+.mobile-placeholder {
+    @include mobile {
+        top: 37px;
+
+        span {
+            @include mobile {
+                font-size: 20px;
+                line-height: 140%;
+            }
+        }
+    }
+}
+
+.mobile-svg {
+    @include mobile {
+        top: 34px;
     }
 }

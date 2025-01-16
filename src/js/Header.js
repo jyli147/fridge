@@ -77,7 +77,6 @@ class Header {
       .addEventListener("click", () => {
         this.scrollToSection(".price");
         this.overlayElement.classList.remove(this.stateClasses.isActive);
-        // this.priceElement.classList.add("padding");
       });
   }
 }
