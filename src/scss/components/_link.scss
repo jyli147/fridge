@@ -18,7 +18,7 @@
     background: var(--schemes-primary);
     border-radius: 12px;
     min-width: 288px;
-    min-height: 78px;
+    min-height: min(78px, 7vh);
 
     font-weight: 400;
     font-size: 22px;
@@ -45,6 +45,7 @@
     border-radius: 12px;
     min-width: 288px;
     min-height: 78px;
+    min-height: min(78px, 7vh);
 
     font-weight: 400;
     font-size: 22px;

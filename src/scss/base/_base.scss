@@ -56,7 +56,7 @@ body {
 }
 
 .inner-card {
-  padding: 48px 0;
+  padding: min(48px, 4vh) 0;
 }
 
 .visually-hidden {

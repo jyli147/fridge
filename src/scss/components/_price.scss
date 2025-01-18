@@ -8,7 +8,7 @@
 .price__container {
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
-    gap: var(--indent);
+    gap: min(var(--indent), 2vh);
     min-height: 620px;
 
     @include mobile {
@@ -23,7 +23,7 @@
 .price__card {
     background: var(--white);
     border-radius: 24px;
-    padding: 24px;
+    padding: min(24px, 2vh);
 
     @include flex-center;
 
@@ -40,7 +40,7 @@
     }
 
     & {
-        gap: 24px;
+        gap: min(24px, 2vh);
         flex-direction: column;
         flex: 0 1 100%;
 
@@ -51,13 +51,15 @@
 
         & {
             flex-direction: column;
-            gap: 12px;
+            gap: min(12px, 1vh);
         }
     }
 
     &-title {
+        display: flex;
+        align-items: center;
         font-weight: 400;
-        font-size: 32px;
+        font-size: min(32px, 3vh);
         line-height: 125%;
         color: var(--color-theme-black);
         display: flex;
@@ -65,21 +67,21 @@
     }
 
     &-img {
-        margin-right: 12px;
-        width: 36px;
-        height: 36px;
+        margin-right: min(12px, 1vh);
+        width: min(32px, 3vh);
+        height: min(32px, 3vh);
     }
 
     &-subtitle {
         font-weight: 400;
-        font-size: 22px;
+        font-size: min(22px, 2vh);
         line-height: 127%;
         color: var(--color-theme-black);
     }
 
     &-link {
         font-weight: 400;
-        font-size: 24px;
+        font-size: min(24px, 2vh);
         line-height: 133%;
         text-decoration-skip-ink: none;
         color: var(--schemes-primary);
