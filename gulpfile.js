@@ -15,6 +15,7 @@ import server from "gulp-server-livereload";
 import avif from "gulp-avif";
 import webp from "gulp-webp";
 import include from "gulp-include";
+import svgSprite from "gulp-svg-sprite";
 
 const path = {
   bild: {
@@ -74,7 +75,7 @@ function html() {
     .pipe(
       include({
         includePaths: "./src/html/components",
-      }),
+      })
     )
     .pipe(dest(path.bild.html));
 }
@@ -100,6 +101,21 @@ async function img() {
     .pipe(dest(path.bild.img));
 }
 
+function sprite() {
+  return src("./src/img/*.svg")
+    .pipe(
+      svgSprite({
+        mode: {
+          stack: {
+            sprite: "../sprite.svg",
+            example: true,
+          },
+        },
+      })
+    )
+    .pipe(dest(path.bild.img));
+}
+
 function cleanDist() {
   return src("./dist", { allowEmpty: true }).pipe(clean());
 }
@@ -109,7 +125,7 @@ function startServer() {
     server({
       livereload: true,
       open: true,
-    }),
+    })
   );
 }
 
@@ -131,8 +147,8 @@ function watching() {
 
 const mainTasks = series(
   cleanDist,
-  parallel(img, styles, html, script, fonts),
-  parallel(startServer, watching),
+  parallel(img, styles, html, script, sprite, fonts),
+  parallel(startServer, watching)
 );
 
 gulp.task("default", mainTasks);
