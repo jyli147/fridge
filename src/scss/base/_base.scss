@@ -37,14 +37,14 @@ body {
 .hero-inner {
   max-width: calc(var(--container-width) + var(--container-padding-d) * 2);
   margin-inline: auto;
-  padding: 96px var(--container-padding-d) 48px var(--container-padding-d);
+  padding: 0 var(--container-padding-d) 48px var(--container-padding-d);
 
   @include tablet {
-    padding: 36px var(--container-padding-t) 36px var(--container-padding-t);
+    padding: 0 var(--container-padding-t) 36px var(--container-padding-t);
   }
 
   @include mobile {
-    padding: 16px var(--container-padding-m) 32px var(--container-padding-m);
+    padding: 0 var(--container-padding-m) 32px var(--container-padding-m);
   }
 }
 
