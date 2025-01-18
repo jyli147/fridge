@@ -9,7 +9,7 @@
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
     gap: min(var(--indent), 2vh);
-    min-height: 620px;
+    flex: 1;
 
     @include mobile {
         grid-template-columns: 1fr 1fr;
