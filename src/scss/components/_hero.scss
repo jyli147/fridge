@@ -64,6 +64,7 @@
     height: 320px;
     flex: 0 1 100%;
     overflow: hidden;
+    border-radius: 24px;
 
     @include mobile-xxs {
         gap: 10px;
@@ -91,6 +92,7 @@
 .logos {
     backdrop-filter: blur(4px);
     background: var(--white);
+    border-radius: 24px;
 }
 
 .marquee-top {

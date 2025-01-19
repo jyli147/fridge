@@ -23,7 +23,7 @@ body {
 .container {
   max-width: calc(var(--container-width) + var(--container-padding-d) * 2);
   margin-inline: auto;
-  padding: 108px var(--container-padding-d) 48px var(--container-padding-d);
+  padding: 94px var(--container-padding-d) 48px var(--container-padding-d);
 
   @include tablet {
     padding: 94px var(--container-padding-t) 36px var(--container-padding-t);

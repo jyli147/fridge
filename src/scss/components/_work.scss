@@ -83,10 +83,10 @@
 
     &-title {
         font-weight: 400;
-        font-size: 32px;
         line-height: 125%;
         color: var(--color-theme-black);
         display: inline-flex;
+        @include fluid-text (32, 22);
 
         img {
             margin-right: 12px;
@@ -104,10 +104,10 @@
 
     &-subtitle {
         font-weight: 400;
-        font-size: 22px;
         line-height: 127%;
         text-align: center;
         color: var(--color-theme-sys-light-on-primary-container);
+        @include fluid-text (22, 16);
 
         @include mobile-xxs {
             text-align: center;
@@ -116,10 +116,10 @@
 
     &-link {
         font-weight: 400;
-        font-size: 24px;
         line-height: 133%;
         color: var(--schemes-primary);
         position: relative;
+        @include fluid-text (24, 18);
 
         &::after {
             content: "";
@@ -139,7 +139,6 @@
 
         @include mobile-xxs {
             text-align: center;
-            font-size: 23px;
         }
     }
 }

@@ -39,10 +39,10 @@
 
     &-question {
         font-weight: 400;
-        font-size: 32px;
         line-height: 125%;
         color: var(--color-theme-black);
         text-align: center;
+        @include fluid-text (32, 22);
 
         @include tablet {
             text-align: start;
@@ -50,17 +50,16 @@
 
         @include mobile {
             text-align: center;
-            font-size: 24px;
             line-height: 133%;
         }
     }
 
     &-answer {
         font-weight: 400;
-        font-size: 22px;
         line-height: 127%;
         color: var(--color-theme-sys-light-on-primary-container);
         text-align: center;
+        @include fluid-text (22, 16);
 
         @include tablet {
             text-align: start;
@@ -68,7 +67,6 @@
 
         @include mobile {
             text-align: center;
-            font-size: 18px;
             line-height: 122%;
             letter-spacing: 0em;
         }
