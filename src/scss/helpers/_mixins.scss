@@ -3,7 +3,18 @@
 
 @mixin fluid-text($max: 48, $min: 16) {
     font-size: fluid($max, $min);
+}
+
+@mixin fluid-width($max: 100, $min: 16) {
     width: fluid($max, $min);
+}
+
+@mixin fluid-height($max: 100, $min: 16) {
+    height: fluid($max, $min);
+}
+
+@mixin fluid-padding($max: 100, $min: 16) {
+    padding: fluid($max, $min);
 }
 
 @mixin hide {

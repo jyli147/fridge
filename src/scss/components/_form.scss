@@ -96,7 +96,7 @@
     display: block;
     position: absolute;
     left: 57px;
-    top: 41px;
+    top: 42px;
     font-weight: 400;
     font-size: 24px;
     line-height: 133%;
@@ -171,6 +171,19 @@
                 font-size: 20px;
                 line-height: 140%;
             }
+        }
+    }
+}
+
+.mobile__form-placeholder {
+    @include mobile {
+        left: 46px;
+    }
+
+    span {
+        @include mobile {
+            font-size: 20px;
+            line-height: 140%;
         }
     }
 }

@@ -9,7 +9,6 @@
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
     gap: var(--indent);
-    min-height: 620px;
 
     @include mobile {
         grid-template-columns: 1fr 1fr;
@@ -23,7 +22,7 @@
 .price__card {
     background: var(--white);
     border-radius: 24px;
-    padding: 24px;
+    padding: 57px 24px;
 
     @include flex-center;
 
@@ -33,6 +32,10 @@
 
     & {
         @include card;
+    }
+
+    @include desktop-l {
+        @include fluid-padding(24, 12)
     }
 
     &:hover {
@@ -57,11 +60,11 @@
 
     &-title {
         font-weight: 400;
-        font-size: 32px;
         line-height: 125%;
         color: var(--color-theme-black);
         display: flex;
         text-align: center;
+        @include fluid-text (32, 22);
     }
 
     &-img {
@@ -72,9 +75,9 @@
 
     &-subtitle {
         font-weight: 400;
-        font-size: 22px;
         line-height: 127%;
         color: var(--color-theme-black);
+        @include fluid-text (22, 16);
     }
 
     &-link {
@@ -84,6 +87,7 @@
         text-decoration-skip-ink: none;
         color: var(--schemes-primary);
         position: relative;
+        @include fluid-text (24, 18);
 
         &::after {
             content: "";

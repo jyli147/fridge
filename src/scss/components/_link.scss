@@ -17,23 +17,18 @@
 .link-left {
     background: var(--schemes-primary);
     border-radius: 12px;
-    min-width: 288px;
-    min-height: 78px;
-
     font-weight: 400;
-    font-size: 22px;
     line-height: 127%;
     color: var(--schemes-on-primary);
     cursor: pointer;
 
+    @include fluid-width(288, 192);
+    @include fluid-height (78, 46);
+    @include fluid-text(22, 18);
     @include flex-center;
 
     @include mobile {
         border-radius: 8px;
-        min-width: 192px;
-        min-height: 46px;
-
-        font-size: 18px;
         line-height: 122%;
         letter-spacing: 0em;
     }
@@ -43,23 +38,19 @@
     background: var(--schemes-on-primary);
     border: 2px solid var(--schemes-primary);
     border-radius: 12px;
-    min-width: 288px;
-    min-height: 78px;
-
     font-weight: 400;
-    font-size: 22px;
     line-height: 127%;
     color: var(--schemes-primary);
     cursor: pointer;
+    @include fluid-width(288, 192);
+    @include fluid-height (78, 46);
+    @include fluid-text(22, 18);
 
     @include flex-center;
 
+
     @include mobile {
         border-radius: 8px;
-        min-width: 192px;
-        min-height: 46px;
-
-        font-size: 18px;
         line-height: 122%;
         letter-spacing: 0em;
     }

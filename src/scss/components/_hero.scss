@@ -22,15 +22,14 @@
     letter-spacing: 0em;
     text-align: center;
     color: var(--schemes-on-background);
-    font-size: 57px;
+
+    @include fluid-text(57, 26);
 
     @include mobile {
-        font-size: 32px;
         line-height: 125%;
     }
 
     @include mobile-xxs {
-        font-size: 26px;
         line-height: 106%;
     }
 }
@@ -41,15 +40,14 @@
     text-align: center;
     color: var(--schemes-on-background);
     padding-top: var(--indent);
-    font-size: 28px;
+
+    @include fluid-text(28, 17);
 
     @include mobile {
-        font-size: 20px;
         line-height: 120%;
     }
 
     @include mobile-xxs {
-        font-size: 17px;
         line-height: 107%;
     }
 }
@@ -66,10 +64,14 @@
     height: 320px;
     flex: 0 1 100%;
     overflow: hidden;
+
+    @include mobile-xxs {
+        gap: 10px;
+    }
 }
 
 .item {
-    max-width: 108px;
+    max-width: 85px;
     height: 50px;
 
     @include mobile-xxs {
@@ -102,6 +104,10 @@
             hsl(0 0% 0% / 1) 20%,
             hsl(0 0% 0% / 1) 80%,
             hsl(0 0% 0% / 0));
+
+    @include tablet {
+        margin: 0 24px 0 24px;
+    }
 }
 
 .marquee--3 {
@@ -112,7 +118,7 @@
 
     @include tablet {
         --marquee-item-width: 108px;
-        --marquee-item-height: 100px;
+        --marquee-item-height: 60px;
     }
 
 }
@@ -207,11 +213,15 @@
             hsl(0 0% 0% / 1) 20%,
             hsl(0 0% 0% / 1) 80%,
             hsl(0 0% 0% / 0));
+
+    @include tablet {
+        margin: 0 24px 0 24px;
+    }
 }
 
 .marquee--4 {
     --marquee-item-width: 191px;
-    --marquee-item-height: 100px;
+    --marquee-item-height: 60px;
     --marquee-duration: 24s;
     --marquee-items-b: 7;
 

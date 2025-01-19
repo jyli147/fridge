@@ -39,6 +39,10 @@ body {
   margin-inline: auto;
   padding: 96px var(--container-padding-d) 48px var(--container-padding-d);
 
+  @include desktop-l {
+    padding: 36px var(--container-padding-t) 36px var(--container-padding-t);
+  }
+
   @include tablet {
     padding: 36px var(--container-padding-t) 36px var(--container-padding-t);
   }
