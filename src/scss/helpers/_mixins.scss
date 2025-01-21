@@ -33,6 +33,10 @@
     padding-bottom: fluid($max, $min);
 }
 
+@mixin fluid-border-radius($max: 100, $min: 16) {
+    border-radius: fluid($max, $min);
+}
+
 @mixin hide {
     opacity: 0;
     visibility: hidden;

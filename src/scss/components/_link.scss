@@ -1,7 +1,7 @@
 @use '../base/config.scss' as *;
 @use '../helpers/index.scss' as *;
 
-.link {
+.link-container {
     @include flex-center;
 
     & {
@@ -14,45 +14,34 @@
     }
 }
 
-.link-left {
-    background: var(--schemes-primary);
-    border-radius: 12px;
-    font-weight: 400;
+.link {
+    box-shadow: 0 1px 4px 0 rgba(12, 12, 13, 0.05), 0 1px 4px 0 rgba(12, 12, 13, 0.1);
+    font-weight: 500;
     line-height: 127%;
-    color: var(--schemes-on-primary);
     cursor: pointer;
-
-    @include fluid-width(288, 192);
-    @include fluid-height (78, 46);
-    @include fluid-text(22, 18);
+    @include fluid-height (78, 44);
+    @include fluid-width(288, 140);
+    @include fluid-text(22, 14);
+    @include fluid-border-radius(12, 8);
     @include flex-center;
 
+
     @include mobile {
-        max-width: 408px;
-        border-radius: 8px;
-        line-height: 122%;
-        letter-spacing: 0em;
+        font-weight: 400;
+        font-size: 14px;
+        line-height: 143%;
+        letter-spacing: 0.02em;
     }
 }
 
+.link-left {
+    border: 2px solid var(--color-theme-sys-light-primary);
+    background: var(--white);
+    color: var(--color-theme-sys-light-primary);
+
+}
+
 .link-right {
-    background: var(--schemes-on-primary);
-    border: 2px solid var(--schemes-primary);
-    border-radius: 12px;
-    font-weight: 400;
-    line-height: 127%;
-    color: var(--schemes-primary);
-    cursor: pointer;
-    @include fluid-width(288, 192);
-    @include fluid-height (78, 46);
-    @include fluid-text(22, 18);
-
-    @include flex-center;
-
-
-    @include mobile {
-        border-radius: 8px;
-        line-height: 122%;
-        letter-spacing: 0em;
-    }
+    background: var(--color-theme-sys-light-primary);
+    color: var(--color-theme-white);
 }

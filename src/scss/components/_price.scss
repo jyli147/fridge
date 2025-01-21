@@ -3,6 +3,8 @@
 
 .price {
     background-color: var(--schemes-surface-bright);
+    min-height: calc(100px + 100vh);
+
 }
 
 .price__container {

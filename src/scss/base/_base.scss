@@ -52,15 +52,20 @@ body {
   }
 }
 
+
 .inner {
-  min-height: calc(100vh - 100px);
   display: flex;
   flex-direction: column;
   justify-content: space-between;
+  min-height: calc(100vh - 100px);
 
   @include tablet {
     min-height: calc(100vh - 44px);
   }
+}
+
+.inner-card {
+  margin: 16px 0;
 }
 
 .visually-hidden {
