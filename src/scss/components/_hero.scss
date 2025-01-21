@@ -1,56 +1,25 @@
 @use '../base/config.scss' as *;
 @use '../helpers/index.scss' as *;
 
-.hero-bg {
+.hero {
     @include background;
 }
 
-.hero {
-    min-height: calc(100vh - 108px);
+.hero-container {
+    min-height: calc(100vh - 100px);
     display: flex;
     flex-direction: column;
     justify-content: space-between;
+
+    @include tablet {
+        min-height: calc(100vh - 44px);
+    }
 }
 
 .hero__inner-card {
-    margin: 48px 0;
+    margin: 16px 0;
 }
 
-.title {
-    font-weight: 400;
-    line-height: 112%;
-    letter-spacing: 0em;
-    text-align: center;
-    color: var(--schemes-on-background);
-
-    @include fluid-text(57, 26);
-
-    @include mobile {
-        line-height: 125%;
-    }
-
-    @include mobile-xxs {
-        line-height: 106%;
-    }
-}
-
-.subtitle {
-    font-weight: 400;
-    line-height: 129%;
-    text-align: center;
-    color: var(--schemes-on-background);
-    padding-top: var(--indent);
-
-    @include fluid-text(28, 17);
-
-    @include mobile {
-        line-height: 120%;
-    }
-
-    @include mobile-xxs {
-        line-height: 107%;
-    }
-}
 
 .logos-mobile {
     display: flex;

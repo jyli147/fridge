@@ -23,44 +23,44 @@ body {
 .container {
   max-width: calc(var(--container-width) + var(--container-padding-d) * 2);
   margin-inline: auto;
-  padding: 94px var(--container-padding-d) 48px var(--container-padding-d);
+  @include fluid-padding-left(96, 16);
+  @include fluid-padding-right(96, 16);
+  @include fluid-padding-top(48, 16);
+  @include fluid-padding-bottom(48, 24);
 
   @include tablet {
-    padding: 94px var(--container-padding-t) 36px var(--container-padding-t);
+    max-width: calc(var(--container-width) + var(--container-padding-t) * 2);
   }
 
   @include mobile {
-    padding: 96px var(--container-padding-m) 32px var(--container-padding-m);
+    max-width: calc(var(--container-width) + var(--container-padding-m) * 2);
   }
 }
 
-.hero-inner {
+.header-container {
   max-width: calc(var(--container-width) + var(--container-padding-d) * 2);
   margin-inline: auto;
-  padding: 96px var(--container-padding-d) 48px var(--container-padding-d);
-
-  @include desktop-l {
-    padding: 36px var(--container-padding-t) 36px var(--container-padding-t);
-  }
+  @include fluid-padding-left(96, 16);
+  @include fluid-padding-right(96, 16);
 
   @include tablet {
-    padding: 36px var(--container-padding-t) 36px var(--container-padding-t);
+    max-width: calc(var(--container-width) + var(--container-padding-t) * 2);
   }
 
   @include mobile {
-    padding: 16px var(--container-padding-m) 32px var(--container-padding-m);
+    max-width: calc(var(--container-width) + var(--container-padding-m) * 2);
   }
 }
 
 .inner {
-  min-height: 100vh;
+  min-height: calc(100vh - 100px);
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-}
 
-.inner-card {
-  padding: 48px 0;
+  @include tablet {
+    min-height: calc(100vh - 44px);
+  }
 }
 
 .visually-hidden {
@@ -80,9 +80,7 @@ body {
 }
 
 .visually-tablet {
-  display: none;
-
-  @include tablet {
-    display: block;
+  @include tablet-above {
+    display: none !important;
   }
 }

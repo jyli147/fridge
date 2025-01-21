@@ -28,6 +28,7 @@
     @include flex-center;
 
     @include mobile {
+        max-width: 408px;
         border-radius: 8px;
         line-height: 122%;
         letter-spacing: 0em;

@@ -17,6 +17,22 @@
     padding: fluid($max, $min);
 }
 
+@mixin fluid-padding-top($max: 100, $min: 16) {
+    padding-top: fluid($max, $min);
+}
+
+@mixin fluid-padding-left($max: 100, $min: 16) {
+    padding-left: fluid($max, $min);
+}
+
+@mixin fluid-padding-right($max: 100, $min: 16) {
+    padding-right: fluid($max, $min);
+}
+
+@mixin fluid-padding-bottom($max: 100, $min: 16) {
+    padding-bottom: fluid($max, $min);
+}
+
 @mixin hide {
     opacity: 0;
     visibility: hidden;
@@ -86,6 +102,11 @@
     background: url(../img/bg.png), #f8f9ff;
     background-repeat: repeat;
     background-size: cover;
+
+}
+
+@mixin background-shadow {
+    box-shadow: inset 2px 2px 100px 0 rgba(42, 42, 42, 0.1);
 }
 
 @mixin transition {

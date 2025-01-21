@@ -2,7 +2,9 @@
 @use '../helpers/index.scss' as *;
 
 .header {
+
     @include background;
+
 
     & {
         position: sticky;
@@ -15,27 +17,21 @@
         display: flex;
         justify-content: space-between;
         align-items: center;
-        height: 94px;
-        padding: 0 var(--container-padding-d) 0 var(--container-padding-d);
+        height: 100px;
 
         @include tablet {
-            padding: 0 var(--container-padding-t) 0 var(--container-padding-t);
-        }
-
-        @include mobile {
-            padding: 0 var(--container-padding-m) 0 var(--container-padding-m);
-            height: 96px;
+            height: 44px;
         }
     }
 }
 
 .header__overlay {
 
-    @include mobile-above {
+    @include tablet-above {
         display: contents;
     }
 
-    @include mobile {
+    @include tablet {
         position: fixed;
         height: 100vh;
         inset: 0;
@@ -44,7 +40,7 @@
         transition-duration: 0.3s;
 
         display: flex;
-        justify-content: center;
+        justify-content: space-evenly;
         gap: 24px;
         z-index: 99;
 
@@ -68,25 +64,30 @@
         display: flex;
         gap: var(--indent);
 
-        @include mobile {
+        @include tablet {
             flex-direction: column;
             align-items: center;
         }
     }
 
     &-link {
-        font-weight: 400;
-        font-size: 24px;
-        line-height: 133%;
-        color: var(--schemes-on-background);
+        font-weight: 500;
+        font-size: 22px;
+        line-height: 127%;
+        color: var(--color-theme-sys-light-on-background);
+
         position: relative;
-        height: 94px;
+        height: 100px;
         display: inline-flex;
         align-items: center;
 
-        @include mobile {
-            height: 50px;
+        @include tablet {
+            height: 32px;
             text-align: center;
+            font-weight: 400;
+            font-size: 24px;
+            line-height: 133%;
+            color: var(--schemes-on-primary-container);
         }
 
         &::after {
@@ -118,41 +119,58 @@
 
     & {
         font-weight: 400;
-        font-size: 32px;
-        line-height: 125%;
+        font-size: 24px;
+        line-height: 133%;
         color: var(--schemes-on-primary-container);
         display: flex;
         align-items: center;
-        justify-content: space-around;
+        justify-content: center;
         flex-direction: column;
         gap: 50px;
     }
 }
 
 .link-mobile {
-    @include mobile {
-        min-width: 269px;
-        min-height: 46px;
-        font-size: 18px;
-        line-height: 122%;
+    @include tablet {
+        border-radius: 8px;
+        min-width: 194px;
+        height: 44px;
+        box-shadow: 0 1px 4px 0 rgba(12, 12, 13, 0.05), 0 1px 4px 0 rgba(12, 12, 13, 0.1);
+        font-weight: 400;
+        font-size: 16px;
+        line-height: 150%;
+        letter-spacing: 0.03em;
+        color: var(--white);
     }
 }
 
 .header__button {
-    border: 1px solid var(--schemes-on-primary-container);
+    border: 2px solid var(--color-theme-sys-light-primary);
     border-radius: 8px;
-    background: var(--white);
 
-    font-size: 18px;
-    line-height: 122%;
-    letter-spacing: 0em;
-    min-width: 230px;
-    height: 46px;
-    color: var(--schemes-on-primary-container);
+    min-width: 278px;
+    height: 52px;
+
+    font-weight: 500;
+    font-size: 22px;
+    line-height: 127%;
+
+    box-shadow: 0 1px 4px 0 rgba(12, 12, 13, 0.05), 0 1px 4px 0 rgba(12, 12, 13, 0.1);
+    background: var(--white);
+    color: var(--color-theme-sys-light-primary);
 
     @include flex-center;
 
-    @include mobile {
+    @include tablet {
         order: -1;
+        box-shadow: 0 1px 4px 0 rgba(12, 12, 13, 0.05), 0 1px 4px 0 rgba(12, 12, 13, 0.1);
+        border: 1px solid var(--color-theme-sys-light-primary);
+        border-radius: 6px;
+        font-weight: 400;
+        font-size: 12px;
+        line-height: 133%;
+        letter-spacing: 0.03em;
+        min-width: 162px;
+        height: 32px;
     }
 }
