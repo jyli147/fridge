@@ -1,17 +1,17 @@
 @use '../base/config.scss' as *;
 @use '../helpers/index.scss' as *;
 
-.modal__title {
-    font-weight: 400;
-    font-size: 24px;
-    line-height: 133%;
-    color: var(--color-theme-black);
-    padding-bottom: 24px;
+.form__title {
+    font-weight: 500;
+    line-height: 127%;
+    color: var(--color-theme-sys-light-on-background);
+    letter-spacing: 0.01em;
     text-align: center;
+    @include fluid-text(22, 16);
+    @include fluid-padding-bottom(36, 16);
 
-    @include tablet {
-        font-size: 20px;
-        line-height: 140%;
+    @include mobile {
+        line-height: 150%;
     }
 }
 
@@ -20,63 +20,13 @@
 
     & {
         flex-direction: column;
-        gap: 24px;
+        @include fluid-gap(12, 8);
     }
 
-}
-
-.input {
-    border: 2px solid var(--schemes-secondary);
-    border-radius: 12px;
-    padding: 12px 12px 12px 57px;
-    min-height: 60px;
-
-    font-weight: 400;
-    font-size: 24px;
-    line-height: 133%;
-    color: var(--schemes-secondary);
-    outline: none;
-    appearance: none;
-    transition: border 0.3s;
-}
-
-.input:focus {
-    cursor: text;
-    border: 2px solid var(--schemes-border);
-}
-
-.input:focus+.data__form-placeholder {
-    @include hide;
-}
-
-.data__form-input {
-    border: 2px solid var(--schemes-secondary);
-    border-radius: 12px;
-    padding: 12px 12px 12px 57px;
-    min-height: 60px;
-    flex: 0 1 100%;
-
-    font-weight: 400;
-    font-size: 24px;
-    line-height: 133%;
-    color: var(--schemes-secondary);
-    outline: none;
-    appearance: none;
-    transition: border 0.3s;
-
-    &:focus {
-        cursor: text;
-        border: 2px solid var(--schemes-border);
-    }
-}
-
-.data__form-input:focus+.data__form-placeholder {
-    @include hide;
 }
 
 .data__form-overtext {
     font-weight: 500;
-    font-size: 14px;
     line-height: 143%;
     letter-spacing: 0.01em;
     color: var(--schemes-secondary);
@@ -84,112 +34,104 @@
 
     display: flex;
     flex-direction: column;
-    gap: 8px;
-    max-width: 533px;
+    @include fluid-text(14, 11);
+    @include fluid-gap(4, 0);
 
-    @include tablet {
-        max-width: 832px;
+    @include mobile {
+        line-height: 145%;
+        letter-spacing: 0.05em;
     }
+}
+
+.input {
+    border: 1px solid var(--color-theme-sys-light-secondary);
+    font-weight: 400;
+    line-height: 150%;
+    letter-spacing: 0.03em;
+    font-size: 18px;
+    color: var(--color-theme-sys-light-secondary);
+
+    outline: none;
+    appearance: none;
+    transition: border 0.3s;
+
+
+    @include fluid-border-radius(12, 8);
+    @include fluid-height(60, 40);
+    @include fluid-padding-top(12, 8);
+    @include fluid-padding-right(12, 8);
+    @include fluid-padding-bottom(12, 8);
+    @include fluid-padding-left(57, 53);
+
+    @include mobile {
+        line-height: 143%;
+        letter-spacing: 0.02em;
+    }
+
+    &:focus {
+        cursor: text;
+        border: 2px solid var(--color-theme-sys-light-secondary);
+    }
+}
+
+.input:focus+.data__form-placeholder {
+    @include hide;
+}
+
+.input-tel:user-valid {
+    border: 2px solid var(--light-gray);
+}
+
+.input-tel:user-invalid {
+    border: 2px solid var(--dangerous);
 }
 
 .data__form-placeholder {
     display: block;
     position: absolute;
+    @include fluid-top(42, 25);
     left: 57px;
-    top: 42px;
-    font-weight: 400;
-    font-size: 24px;
-    line-height: 133%;
-    color: var(--schemes-secondary);
     pointer-events: none;
 
     span {
-        padding-left: 12px;
         text-align: center;
-        padding-bottom: 3px;
+        font-weight: 400;
+        font-size: 16px;
+        line-height: 150%;
+        letter-spacing: 0.03em;
+        color: var(--color-theme-sys-light-secondary);
     }
 }
 
-.data__form-svg {
+.data__form-img {
     position: absolute;
-    top: 40px;
+    @include fluid-top(35, 25);
     left: 12px;
+    @include fluid-height(37, 24);
+    @include fluid-width(37, 24);
+
 }
 
-.input:user-valid {
-    border: 2px solid var(--light-gray);
-}
 
-.input:user-invalid {
-    border: 2px solid var(--dangerous);
-}
 
-.button {
+.data__form-button {
+    @include fluid-margin-top(24, 4);
     flex: 0 1 100%;
-    background: var(--schemes-primary);
-    border-radius: 12px;
-    padding: 16px;
-    min-height: 76px;
-    font-weight: 400;
-    font-size: 22px;
+    box-shadow: 0 1px 4px 0 rgba(12, 12, 13, 0.05), 0 1px 4px 0 rgba(12, 12, 13, 0.1);
+    background: var(--color-theme-sys-light-primary);
+    @include fluid-border-radius(12, 8);
+    @include fluid-min-height(64, 36);
+    @include fluid-text(22, 14);
+    font-weight: 500;
     line-height: 127%;
-    color: var(--schemes-on-primary);
+    color: var(--white);
     text-align: center;
     cursor: pointer;
     @include flex-center;
-}
 
-.mobile-form {
     @include mobile {
-        gap: 12px;
-    }
-}
-
-.mobile-input {
-    @include mobile {
-        min-height: 48px;
-        padding: 6px 6px 6px 57px;
-    }
-}
-
-.mobile-button {
-    @include mobile {
-        min-height: 46px;
-        padding: 12px;
-        font-size: 18px;
-        line-height: 122%;
-        letter-spacing: 0em;
-    }
-}
-
-.mobile-placeholder {
-    @include mobile {
-        top: 37px;
-
-        span {
-            @include mobile {
-                font-size: 20px;
-                line-height: 140%;
-            }
-        }
-    }
-}
-
-.mobile__form-placeholder {
-    @include mobile {
-        left: 46px;
-    }
-
-    span {
-        @include mobile {
-            font-size: 20px;
-            line-height: 140%;
-        }
-    }
-}
-
-.mobile-svg {
-    @include mobile {
-        top: 34px;
+        font-weight: 400;
+        line-height: 143%;
+        letter-spacing: 0.02em;
     }
 }

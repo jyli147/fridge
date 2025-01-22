@@ -13,6 +13,10 @@
     height: fluid($max, $min);
 }
 
+@mixin fluid-min-height($max: 100, $min: 16) {
+    min-height: fluid($max, $min);
+}
+
 @mixin fluid-padding($max: 100, $min: 16) {
     padding: fluid($max, $min);
 }
@@ -35,6 +39,26 @@
 
 @mixin fluid-border-radius($max: 100, $min: 16) {
     border-radius: fluid($max, $min);
+}
+
+@mixin fluid-gap($max: 100, $min: 16) {
+    gap: fluid($max, $min);
+}
+
+@mixin fluid-margin-top($max: 100, $min: 16) {
+    margin-top: fluid($max, $min);
+}
+
+@mixin fluid-margin-bottom($max: 100, $min: 16) {
+    margin-bottom: fluid($max, $min);
+}
+
+@mixin fluid-margin-right($max: 100, $min: 16) {
+    margin-right: fluid($max, $min);
+}
+
+@mixin fluid-top($max: 100, $min: 16) {
+    top: fluid($max, $min);
 }
 
 @mixin hide {

@@ -1,0 +1,128 @@
+@use '../base/config.scss' as *;
+@use '../helpers/index.scss' as *;
+
+.card-container {
+    max-width: 1308px;
+    margin-inline: auto;
+    @include flex-center;
+
+    & {
+        flex-wrap: wrap;
+        @include fluid-gap(24, 8);
+    }
+}
+
+.card {
+    padding: 24px;
+    box-shadow: 0 1px 4px 0 rgba(12, 12, 13, 0.05), 0 1px 4px 0 rgba(12, 12, 13, 0.1);
+    background: var(--white);
+
+
+    @include fluid-width(420, 288);
+    @include fluid-height(300, 120);
+    @include fluid-border-radius(24, 12);
+    @include fluid-gap(24, 8);
+    @include flex-center;
+
+    & {
+        flex: auto;
+    }
+
+    @include mobile {
+        height: auto;
+        flex: 0 1 100%;
+    }
+
+    & {
+        flex-direction: column;
+        @include transition;
+    }
+
+    &:hover {
+        @include hover-card;
+    }
+
+    &-text {
+        @include flex-center;
+
+        & {
+            flex-direction: column;
+            @include fluid-gap(12, 4);
+        }
+
+        &-container {
+            @include mobile-above {
+                display: contents;
+            }
+
+            @include mobile {
+                display: flex;
+                @include fluid-gap(12, 8)
+            }
+        }
+    }
+
+    &-title {
+        font-weight: 400;
+        line-height: 93%;
+        text-align: center;
+        color: var(--color-theme-black);
+        display: flex;
+        @include fluid-text (28, 16);
+
+        @include mobile {
+            font-weight: 500;
+            line-height: 150%;
+            letter-spacing: 0.01em;
+        }
+    }
+
+    &-img {
+        @include fluid-width(36, 20);
+        @include fluid-height(36, 20);
+    }
+
+    &-subtitle {
+        font-weight: 400;
+        font-size: 16px;
+        line-height: 150%;
+        letter-spacing: 0.03em;
+        text-align: center;
+        color: var(--color-theme-sys-light-on-primary-container);
+        @include fluid-text (16, 12);
+
+        @include mobile {
+            line-height: 133%;
+        }
+    }
+
+    &-link {
+        font-weight: 400;
+        line-height: 127%;
+        letter-spacing: 0.02em;
+        color: var(--color-theme-sys-light-primary);
+        text-decoration-skip-ink: none;
+        position: relative;
+        @include fluid-text (22, 14);
+
+        @include mobile {
+            line-height: 143%;
+        }
+
+        &::after {
+            content: "";
+            position: absolute;
+            top: 28px;
+            left: 50%;
+            translate: -50%;
+            width: 0;
+            height: 2px;
+            background-color: var(--schemes-primary);
+            transition-duration: 0.4s;
+        }
+
+        &:hover::after {
+            width: 100%;
+        }
+    }
+}

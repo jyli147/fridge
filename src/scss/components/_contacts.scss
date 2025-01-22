@@ -12,47 +12,50 @@
 
     @include tablet {
         flex-direction: column;
-        gap: 24px;
+        gap: 36px;
+    }
+
+    @include mobile {
+        gap: 12px;
     }
 }
 
 .contacts__form {
-    flex: 0 1 50%;
-    max-width: 626px;
-    border-radius: 24px;
-    padding: 48px;
-
-    box-shadow: 0 1px 4px 0 rgba(12, 12, 13, 0.05), 0 1px 4px 0 rgba(12, 12, 13, 0.1);
-    background: var(--white);
     display: flex;
     flex-direction: column;
-
-    @include tablet {
-        max-width: 928px;
-    }
-
-    @include mobile {
-        padding: 16px;
-    }
+    max-width: 587px;
+    box-shadow: 0 1px 4px 0 rgba(12, 12, 13, 0.05), 0 1px 4px 0 rgba(12, 12, 13, 0.1);
+    background: var(--white);
+    @include fluid-padding-top(48, 18);
+    @include fluid-padding-left(48, 12);
+    @include fluid-padding-right(48, 12);
+    @include fluid-padding-bottom(48, 18);
+    @include fluid-border-radius(24, 12);
+    flex: auto;
+    height: fit-content;
 }
 
 .contacts__container-inner {
     display: flex;
     flex-direction: column;
-    gap: 26px;
+    @include fluid-gap(26, 12);
 
     @include tablet {
-        flex-direction: row;
-        flex-wrap: wrap;
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+    }
+
+    @include mobile {
+        grid-template-columns: 1fr;
     }
 }
 
 .contacts__card {
+    box-shadow: 0 1px 4px 0 rgba(12, 12, 13, 0.05), 0 1px 4px 0 rgba(12, 12, 13, 0.1);
+    background: var(--white);
     max-width: 350px;
     border-radius: 12px;
     padding: 18px;
-    background: var(--white);
-
     display: flex;
     justify-content: center;
     gap: 6px;
@@ -60,42 +63,64 @@
     flex: 0 1 100%;
     @include transition;
 
-    & {
-        @include card;
-    }
-
     &:hover {
         @include hover-card;
     }
 
     @include tablet {
-        max-width: 483px;
-        flex: 0 1 48%;
-
-    }
-
-    @include mobile {
-        max-width: 958px;
-        flex: 0 1 100%;
-
+        max-width: 964px;
     }
 
     &-overtext {
-        font-weight: 600;
-        font-size: 14px;
-        line-height: 143%;
-        letter-spacing: 0.01em;
-        color: var(--schemes-secondary);
+        font-weight: 500;
+        font-size: 12px;
+        line-height: 133%;
+        letter-spacing: 0.04em;
+        color: var(--color-theme-sys-light-secondary);
     }
 
     &-link {
-        font-weight: 400;
-        font-size: 24px;
-        line-height: 133%;
-        color: var(--color-theme-black);
+        display: flex;
+        align-items: center;
 
         span {
             padding-left: 12px;
+            font-weight: 400;
+            font-size: 16px;
+            line-height: 150%;
+            letter-spacing: 0.03em;
+            color: var(--color-theme-black);
         }
+    }
+}
+
+
+.contacts__link-container {
+    padding-top: var(--indent);
+
+    @include flex-center;
+
+    & {
+        gap: 50px;
+    }
+
+    @include mobile-xxs {
+        gap: 28px;
+    }
+
+    @include mobile {
+        padding-top: 12px;
+    }
+}
+
+.contacts__link {
+    border-radius: 12px;
+    padding: 18px;
+
+    box-shadow: 0 1px 4px 0 rgba(12, 12, 13, 0.05), 0 1px 4px 0 rgba(12, 12, 13, 0.1);
+    background: var(--color-theme-white);
+
+    &:hover {
+        @include hover-card;
     }
 }

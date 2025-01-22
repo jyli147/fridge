@@ -26,64 +26,50 @@
 .modal-box {
     display: flex;
     flex-direction: column;
-    border-radius: 24px;
-    padding: 48px;
-    max-width: 629px;
+    max-width: 587px;
     position: relative;
     box-shadow: 0 4px 4px -4px rgba(12, 12, 13, 0.05), 0 16px 32px -4px rgba(12, 12, 13, 0.1);
     background: var(--white);
     margin: auto;
-
-    @include mobile {
-        padding: 30px;
-    }
-
+    @include fluid-padding-top(48, 18);
+    @include fluid-padding-left(48, 12);
+    @include fluid-padding-right(48, 12);
+    @include fluid-padding-bottom(48, 18);
+    @include fluid-border-radius(24, 12);
 }
 
 .modal-text {
     font-weight: 400;
-    font-size: 22px;
-    line-height: 127%;
+    line-height: 150%;
+    letter-spacing: 0.03em;
     color: var(--color-theme-sys-light-outline);
     text-align: center;
-    padding-top: var(--indent);
-}
+    @include fluid-padding-top(24, 16);
+    @include fluid-text(16, 12);
 
-.mobile-text {
     @include mobile {
-        padding-top: 12px;
-        font-size: 18px;
-        line-height: 122%;
-        letter-spacing: 0em;
+        line-height: 133%;
     }
 }
 
 .modal__link-container {
-    padding-top: var(--indent);
-
+    @include fluid-padding-top(8, 4);
     @include flex-center;
 
     & {
-        gap: 50px;
-    }
-
-    @include mobile-xxs {
         gap: 28px;
     }
-}
 
-.mobile__link-container {
-    @include mobile {
-        padding-top: 12px;
-    }
 }
 
 .modal__link {
     border-radius: 12px;
-    padding: 18px;
-
+    padding: 12px;
     box-shadow: 0 1px 4px 0 rgba(12, 12, 13, 0.05), 0 1px 4px 0 rgba(12, 12, 13, 0.1);
-    background: var(--color-theme-white);
+    background: var(--white);
+    @include fluid-width(72, 48);
+    @include fluid-height(72, 48);
+    @include transition;
 
     &:hover {
         @include hover-card;

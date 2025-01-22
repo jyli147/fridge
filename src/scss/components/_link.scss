@@ -8,9 +8,8 @@
         gap: var(--indent);
     }
 
-    @include mobile-xxs {
-        flex-direction: column;
-        gap: 12px;
+    @include mobile {
+        gap: 8px;
     }
 }
 
