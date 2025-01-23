@@ -19,38 +19,69 @@
 .logos-mobile {
     display: flex;
     justify-content: center;
-    align-items: center;
     flex-wrap: wrap;
     background: var(--white);
-    gap: var(--indent);
     flex: 0 1 100%;
     overflow: hidden;
-
     box-shadow: 0 1px 4px 0 rgba(12, 12, 13, 0.05);
-
+    @include fluid-gap(24, 8);
     @include fluid-padding(48, 2);
     @include fluid-height(461, 228);
     @include fluid-border-radius(24, 12);
 
-    @include mobile-xxs {
-        gap: 10px;
-    }
 }
 
 .item {
-    @include mobile {
-        @include fluid-width(156, 50);
-        @include fluid-height(77, 50);
-    }
+    max-width: 159px;
+    max-height: 170px;
+    flex: auto;
 
+    @include tablet {
+        @include fluid-height(77, 50);
+        @include fluid-width(166, 50);
+    }
 }
 
 .item-bottom {
-    @include mobile {
-        @include fluid-width(156, 50);
+    max-width: 220px;
+    max-height: 170px;
+    flex: auto;
+
+    @include tablet {
         @include fluid-height(77, 50);
+        @include fluid-width(166, 74);
     }
+
+
+
+
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 .logos {
     backdrop-filter: blur(4px);

@@ -56,7 +56,7 @@ body {
 .inner {
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
+  justify-content: space-around;
   min-height: calc(100vh - 100px);
 
   @include tablet {
@@ -65,7 +65,8 @@ body {
 }
 
 .inner-card {
-  margin: 16px 0
+  @include fluid-margin-top(36, 16);
+  @include fluid-margin-bottom(36, 16);
 }
 
 .visually-hidden {

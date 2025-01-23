@@ -6,13 +6,24 @@
 }
 
 .contacts__container {
+
+    @include flex-center;
+
+    & {
+        flex-direction: column;
+    }
+}
+
+.contacts__inner {
     display: flex;
     justify-content: center;
     gap: 48px;
+    max-width: 985px;
 
     @include tablet {
         flex-direction: column;
         gap: 36px;
+        max-width: 587px;
     }
 
     @include mobile {
@@ -23,6 +34,7 @@
 .contacts__form {
     display: flex;
     flex-direction: column;
+    justify-content: center;
     max-width: 587px;
     box-shadow: 0 1px 4px 0 rgba(12, 12, 13, 0.05), 0 1px 4px 0 rgba(12, 12, 13, 0.1);
     background: var(--white);
@@ -32,7 +44,7 @@
     @include fluid-padding-bottom(48, 18);
     @include fluid-border-radius(24, 12);
     flex: auto;
-    height: fit-content;
+
 }
 
 .contacts__container-inner {
@@ -94,33 +106,10 @@
     }
 }
 
+.contacts__footer {
+    display: block;
 
-.contacts__link-container {
-    padding-top: var(--indent);
-
-    @include flex-center;
-
-    & {
-        gap: 50px;
-    }
-
-    @include mobile-xxs {
-        gap: 28px;
-    }
-
-    @include mobile {
-        padding-top: 12px;
-    }
-}
-
-.contacts__link {
-    border-radius: 12px;
-    padding: 18px;
-
-    box-shadow: 0 1px 4px 0 rgba(12, 12, 13, 0.05), 0 1px 4px 0 rgba(12, 12, 13, 0.1);
-    background: var(--color-theme-white);
-
-    &:hover {
-        @include hover-card;
+    @include mobile-above {
+        @include fluid-height(300, 0)
     }
 }
