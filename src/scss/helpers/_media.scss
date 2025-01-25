@@ -4,6 +4,8 @@ $tablet-above: 1025px;
 $mobile-above: 769px;
 $mobile: 768px;
 
+$mobile-s: 440px;
+
 
 @mixin tablet-above {
     @media (min-width: $tablet-above) {
@@ -30,6 +32,11 @@ $mobile: 768px;
     }
 }
 
+@mixin mobile-s {
+    @media (max-width: $mobile-s) {
+        @content;
+    }
+}
 
 @mixin hover($hasActiveEffectOnMobile: true) {
 

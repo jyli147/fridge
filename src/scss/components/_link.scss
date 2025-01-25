@@ -31,6 +31,10 @@
         line-height: 143%;
         letter-spacing: 0.02em;
     }
+
+    @include mobile-s {
+        flex: 0 1 100%;
+    }
 }
 
 .link-left {

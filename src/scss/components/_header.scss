@@ -2,9 +2,7 @@
 @use '../helpers/index.scss' as *;
 
 .header {
-
     @include background;
-
 
     & {
         position: sticky;
@@ -82,7 +80,7 @@
         align-items: center;
 
         @include tablet {
-            height: 32px;
+            height: 35px;
             text-align: center;
             font-weight: 400;
             font-size: 24px;
@@ -100,6 +98,10 @@
             height: 2px;
             background-color: var(--schemes-on-background);
             transition-duration: 0.4s;
+
+            @include tablet {
+                top: 90%;
+            }
         }
 
         &:hover::after {

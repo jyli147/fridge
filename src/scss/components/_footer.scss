@@ -7,9 +7,10 @@
 
     &__text {
         font-weight: 400;
-        font-size: 20px;
-        line-height: 120%;
-        color: #154c8d;
+        font-size: 12px;
+        line-height: 133%;
+        letter-spacing: 0.03em;
+        color: var(--color-theme-sys-light-outline);
         text-align: center;
     }
 }

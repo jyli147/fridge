@@ -9,7 +9,7 @@
     min-height: calc(100vh - 100px);
     display: flex;
     flex-direction: column;
-    justify-content: space-between;
+    justify-content: space-around;
 
     @include tablet {
         min-height: calc(100vh - 44px);
@@ -26,15 +26,18 @@
     box-shadow: 0 1px 4px 0 rgba(12, 12, 13, 0.05);
     @include fluid-gap(24, 8);
     @include fluid-padding(48, 2);
-    @include fluid-height(461, 228);
+    height: 461px;
     @include fluid-border-radius(24, 12);
+
+    @include tablet {
+        @include fluid-height(477, 300);
+    }
 
 }
 
 .item {
     max-width: 159px;
     max-height: 170px;
-    flex: auto;
 
     @include tablet {
         @include fluid-height(77, 50);
@@ -45,7 +48,6 @@
 .item-bottom {
     max-width: 220px;
     max-height: 170px;
-    flex: auto;
 
     @include tablet {
         @include fluid-height(77, 50);
