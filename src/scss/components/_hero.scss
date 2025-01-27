@@ -3,6 +3,7 @@
 
 .hero {
     @include background;
+    @include scroll;
 }
 
 .hero-container {
@@ -16,47 +17,53 @@
     }
 }
 
+.hero-logos {
+    display: flex;
+}
+
 .logos-mobile {
     display: flex;
     justify-content: center;
     flex-wrap: wrap;
     background: var(--white);
-    flex: 0 1 100%;
+    flex: auto;
     overflow: hidden;
     box-shadow: 0 1px 4px 0 rgba(12, 12, 13, 0.05);
     @include fluid-gap(24, 8);
     @include fluid-padding(48, 2);
-    height: 461px;
     @include fluid-border-radius(24, 12);
-
-    @include tablet {
-        @include fluid-height(477, 300);
-    }
 
 }
 
 .item {
-    max-width: 159px;
-    max-height: 170px;
+    @include fluid-height(170, 75);
+    @include fluid-width(159, 150);
 
     @include tablet {
-        @include fluid-height(77, 50);
-        @include fluid-width(166, 50);
+        @include fluid-height(75, 81);
+        @include fluid-width(166, 88);
     }
+
+    @include mobile-s {
+        @include fluid-height(81, 50);
+        @include fluid-width(88, 50);
+    }
+
 }
 
 .item-bottom {
-    max-width: 220px;
-    max-height: 170px;
+    @include fluid-height(170, 75);
+    @include fluid-width(220, 166);
 
     @include tablet {
-        @include fluid-height(77, 50);
-        @include fluid-width(166, 74);
+        @include fluid-height(75, 81);
+        @include fluid-width(166, 88);
     }
 
-
-
-
+    @include mobile-s {
+        @include fluid-height(81, 50);
+        @include fluid-width(88, 74);
+    }
 }
 
 

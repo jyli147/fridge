@@ -30,9 +30,6 @@
         font-size: 14px;
         line-height: 143%;
         letter-spacing: 0.02em;
-    }
-
-    @include mobile-s {
         flex: 0 1 100%;
     }
 }
@@ -42,9 +39,17 @@
     background: var(--white);
     color: var(--color-theme-sys-light-primary);
 
+    &:hover {
+        background: #f0f0f0;
+    }
+
 }
 
 .link-right {
     background: var(--color-theme-sys-light-primary);
     color: var(--color-theme-white);
+
+    &:hover {
+        background: #30527a;
+    }
 }

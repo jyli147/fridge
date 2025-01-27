@@ -109,7 +109,6 @@
     left: 12px;
     @include fluid-height(37, 24);
     @include fluid-width(37, 24);
-
 }
 
 
@@ -134,4 +133,21 @@
         line-height: 143%;
         letter-spacing: 0.02em;
     }
+}
+
+.tel-errors {
+    font-weight: 600;
+    font-size: 14px;
+    line-height: 143%;
+    letter-spacing: 0.01em;
+    color: var(--color-theme-sys-light-error);
+    opacity: 0;
+    transition: opacity 0.1s;
+    visibility: hidden;
+
+}
+
+.input-tel:user-invalid+.tel-errors {
+    opacity: 1;
+    visibility: visible;
 }

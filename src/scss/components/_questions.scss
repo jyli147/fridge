@@ -3,6 +3,7 @@
 
 .questions {
     background-color: var(--schemes-surface-bright);
+    @include scroll;
 }
 
 .card-answer {

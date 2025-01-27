@@ -1,5 +1,6 @@
 @use 'sass:math';
 @use 'functions' as *;
+@use '../helpers/media.scss' as *;
 
 @mixin fluid-text($max: 48, $min: 16) {
     font-size: fluid($max, $min);
@@ -152,4 +153,12 @@
     -moz-box-shadow: 0px 1px 4px 0px rgba(12, 12, 13, 0.25);
     box-shadow: 0px 1px 4px 0px rgba(12, 12, 13, 0.25);
     cursor: pointer;
+}
+
+@mixin scroll {
+    scroll-margin-top: 100px;
+
+    @include tablet {
+        scroll-margin-top: 44px;
+    }
 }

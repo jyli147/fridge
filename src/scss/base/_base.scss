@@ -2,9 +2,12 @@
 @use "../helpers/index" as *;
 
 html {
+  font-family: var(--font-family);
+
   &.is-lock {
     overflow: hidden;
   }
+
 }
 
 html {
@@ -14,10 +17,6 @@ html {
   font-weight: 400;
   color: var(--white);
   scroll-behavior: smooth;
-}
-
-body {
-  font-family: var(--font-family);
 }
 
 .container {

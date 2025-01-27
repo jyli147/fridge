@@ -1,8 +1,8 @@
 <section class="contacts" id="contacts" data-js-contacts>
   <div class="container inner">
     <div>
-      <h2 class="contacts__title title">Контакты</h2>
-      <p class="contacts__subtitle subtitle">
+      <h2 class="title">Контакты</h2>
+      <p class="subtitle">
         Телефон, мессенджеры, а также ссылки независимые площадки
       </p>
     </div>
@@ -22,13 +22,13 @@
                   id="tel-contacts"
                   name="tel-contacts"
                   type="tel"
-                  pattern="^\+7[1-9]{10}$"
                   required
                   aria-describedby="tel-errors"
                   autocomplete="off"
                   minlength="11"
-                  maxlength="18"
+                  maxlength="12"
                 />
+                <span class="tel-errors">Неправильный формат</span>
                 <label for="tel-contacts" class="data__form-placeholder">
                   <span data-js-name> +7 (999) 888-99-99</span>
                 </label>

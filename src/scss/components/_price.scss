@@ -3,4 +3,5 @@
 
 .price {
     background-color: var(--schemes-surface-bright);
+    @include scroll;
 }

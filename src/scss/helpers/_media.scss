@@ -1,10 +1,10 @@
 $tablet: 1024px;
 $tablet-above: 1025px;
 
-$mobile-above: 769px;
-$mobile: 768px;
+$mobile-above: 440px;
+$mobile: 440px;
+$mobile-s: 375px;
 
-$mobile-s: 440px;
 
 
 @mixin tablet-above {
@@ -37,6 +37,7 @@ $mobile-s: 440px;
         @content;
     }
 }
+
 
 @mixin hover($hasActiveEffectOnMobile: true) {
 

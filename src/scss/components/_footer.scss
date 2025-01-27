@@ -4,6 +4,7 @@
 .footer {
     @include background;
     padding: 24px 0;
+    background-color: #e7e7e7;
 
     &__text {
         font-weight: 400;

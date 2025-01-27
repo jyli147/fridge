@@ -3,6 +3,7 @@
 
 .contacts {
     @include background;
+    @include scroll;
 }
 
 .contacts__container {

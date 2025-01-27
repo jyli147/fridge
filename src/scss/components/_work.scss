@@ -3,6 +3,7 @@
 
 .work {
     @include background;
+    @include scroll;
 }
 
 .work__card-text-container {
