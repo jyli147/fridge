@@ -12,7 +12,12 @@
           <h4 class="form__title">
             Оставьте заявку для бесплатной консультации
           </h4>
-          <form class="data__form" name="form" method="POST" novalidate>
+          <form
+            class="data__form data__form-contacts"
+            name="form"
+            method="POST"
+            novalidate
+          >
             <p class="field">
               <label class="data__form-overtext" for="tel-contacts"
                 >Номер телефона
@@ -20,7 +25,7 @@
                   data-js-input
                   class="input input-tel"
                   id="tel-contacts"
-                  name="tel-contacts"
+                  name="phoneNumber"
                   type="tel"
                   required
                   aria-describedby="tel-errors"
@@ -78,7 +83,7 @@
               Оставить заявку
             </button>
           </form>
-
+          <div class="result"></div>
           <span class="modal-text visible-mobile"
             >Или свяжитесь со мной напрямую</span
           >

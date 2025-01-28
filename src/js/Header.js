@@ -125,3 +125,46 @@ inputs.forEach((input) => {
   input.addEventListener("input", toggleVisibility);
 });
 toggleVisibility();
+
+// // Работа с формой
+createPostFormSubmit = document.querySelector(".data__form-contacts");
+resultElement = document.querySelector(".result");
+createPostFormSubmit.addEventListener("submit", (event) => {
+  event.preventDefault();
+  const formDate = new FormData(createPostFormSubmit);
+  const formDateObject = Object.fromEntries(formDate);
+  console.log(formDateObject);
+
+  fetch("http://localhost:5000/order", {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json;charset=utf-8",
+    },
+    body: JSON.stringify({
+      ...formDateObject,
+    }),
+  })
+    .then((response) => {
+      console.log("response:", response);
+
+      if (!response.ok) {
+        const errorMessage =
+          response.status === 404
+            ? "Не правильно заполнены поля"
+            : "Что-то пошло не так";
+        throw new Error(errorMessage);
+      }
+
+      return response.json();
+    })
+    .then((json) => {
+      console.log("json:", json);
+
+      resultElement.innerHTML = json.message;
+    })
+    .catch((error) => {
+      console.log(error);
+
+      resultElement.innerHTML = error.message;
+    });
+});
