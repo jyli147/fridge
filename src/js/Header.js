@@ -127,44 +127,109 @@ inputs.forEach((input) => {
 toggleVisibility();
 
 // // Работа с формой
-createPostFormSubmit = document.querySelector(".data__form-contacts");
-resultElement = document.querySelector(".result");
-createPostFormSubmit.addEventListener("submit", (event) => {
-  event.preventDefault();
-  const formDate = new FormData(createPostFormSubmit);
-  const formDateObject = Object.fromEntries(formDate);
-  console.log(formDateObject);
+// const createPostFormSubmit = document.querySelector(".data__form-contacts");
+// const resultElement = document.querySelector(".result");
+// createPostFormSubmit.addEventListener("submit", (event) => {
+//   event.preventDefault();
+//   const formDate = new FormData(createPostFormSubmit);
+//   const formDateObject = Object.fromEntries(formDate);
+//   console.log(formDateObject);
 
+//   fetch("http://localhost:5000/order", {
+//     method: "POST",
+//     headers: {
+//       "Content-Type": "application/json;charset=utf-8",
+//     },
+//     body: JSON.stringify({
+//       formDateObject,
+//     }),
+//   })
+//     .then((response) => {
+//       console.log("response:", response);
+
+//       if (!response.ok) {
+//         const errorMessage =
+//           response.status === 404
+//             ? "Не правильно заполнены поля"
+//             : "Что-то пошло не так";
+//         throw new Error(errorMessage);
+//       }
+
+//       return response.json();
+//     })
+//     .then((json) => {
+//       console.log("json:", json);
+
+//       resultElement.innerHTML = json.message;
+//     })
+//     .catch((error) => {
+//       console.log(error);
+
+//       resultElement.innerHTML = error.message;
+//     });
+// });
+
+const resultElement = document.querySelector(".result");
+const createPostForms = document.querySelectorAll(".data__form");
+const loader = document.getElementById("loader");
+
+function formListener(form) {
+  form.addEventListener("submit", (event) => {
+    event.preventDefault();
+    const formDataObject = findOrderData(form);
+    createOrder(formDataObject);
+  });
+}
+
+function findOrderData(form) {
+  const formData = new FormData(form);
+  return Object.fromEntries(formData);
+}
+
+function createOrder(formDataObject) {
   fetch("http://localhost:5000/order", {
     method: "POST",
     headers: {
       "Content-Type": "application/json;charset=utf-8",
     },
-    body: JSON.stringify({
-      ...formDateObject,
-    }),
+    body: JSON.stringify(formDataObject),
   })
     .then((response) => {
-      console.log("response:", response);
+      toggleLoader();
 
       if (!response.ok) {
-        const errorMessage =
-          response.status === 404
-            ? "Не правильно заполнены поля"
-            : "Что-то пошло не так";
-        throw new Error(errorMessage);
+        throw new Error();
       }
 
+      toggleLoader();
       return response.json();
     })
-    .then((json) => {
-      console.log("json:", json);
+    .then(createOrderOkHandler)
+    .catch(createOrderErrorHandler);
+}
 
-      resultElement.innerHTML = json.message;
-    })
-    .catch((error) => {
-      console.log(error);
+function toggleLoader() {
+  loader.classList.toggle("visually-hidden");
+}
 
-      resultElement.innerHTML = error.message;
-    });
-});
+function createOrderOkHandler(json) {
+  resultElement.classList.toggle("visually-hidden");
+  resultElement.innerHTML = json.message;
+}
+
+function createOrderErrorHandler(error) {
+  resultElement.innerHTML = error.message;
+}
+
+// Инициализация слушателей для обеих форм
+createPostForms.forEach((form) => formListener(form));
+
+// Установим неактивную кнопку отправки при невалидной форме
+function checkValidity(event) {
+  const formNode = event.target.form;
+  const isValid = formNode.checkValidity();
+
+  formNode.querySelectorAll("data__form-button").disabled = !isValid;
+}
+
+createPostForms.addEventListener("input", checkValidity);

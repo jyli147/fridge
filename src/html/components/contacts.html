@@ -53,7 +53,7 @@
                 <input
                   data-js-input
                   class="input"
-                  name="name-contacts"
+                  name="name"
                   id="name-contacts"
                   type="text"
                   pattern="^[a-zA-Zа-яА-ЯЁё \-]+$"
@@ -83,7 +83,8 @@
               Оставить заявку
             </button>
           </form>
-          <div class="result"></div>
+          <div id="loader" class="visually-hidden loader">Отправляем...</div>
+          <div class="result visually-hidden"></div>
           <span class="modal-text visible-mobile"
             >Или свяжитесь со мной напрямую</span
           >
