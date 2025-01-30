@@ -87,10 +87,6 @@ new Header();
 document.querySelectorAll("[data-js-button]").forEach((button) => {
   button.addEventListener("click", function () {
     document.getElementById("modal").classList.add("open");
-    categoriesAddTask.addEventListener(
-      "click",
-      categoryLinkedCategoryForAddTask
-    );
   });
 });
 
@@ -126,52 +122,14 @@ inputs.forEach((input) => {
 });
 toggleVisibility();
 
-// // Работа с формой
-// const createPostFormSubmit = document.querySelector(".data__form-contacts");
-// const resultElement = document.querySelector(".result");
-// createPostFormSubmit.addEventListener("submit", (event) => {
-//   event.preventDefault();
-//   const formDate = new FormData(createPostFormSubmit);
-//   const formDateObject = Object.fromEntries(formDate);
-//   console.log(formDateObject);
-
-//   fetch("http://localhost:5000/order", {
-//     method: "POST",
-//     headers: {
-//       "Content-Type": "application/json;charset=utf-8",
-//     },
-//     body: JSON.stringify({
-//       formDateObject,
-//     }),
-//   })
-//     .then((response) => {
-//       console.log("response:", response);
-
-//       if (!response.ok) {
-//         const errorMessage =
-//           response.status === 404
-//             ? "Не правильно заполнены поля"
-//             : "Что-то пошло не так";
-//         throw new Error(errorMessage);
-//       }
-
-//       return response.json();
-//     })
-//     .then((json) => {
-//       console.log("json:", json);
-
-//       resultElement.innerHTML = json.message;
-//     })
-//     .catch((error) => {
-//       console.log(error);
-
-//       resultElement.innerHTML = error.message;
-//     });
-// });
+// Работа с формой
 
 const resultElement = document.querySelector(".result");
+const resultTextElement = document.querySelector(".result-text");
+const resultCloseElement = document.querySelector(".result-close");
 const createPostForms = document.querySelectorAll(".data__form");
 const loader = document.getElementById("loader");
+const telEerrorsElements = document.querySelectorAll(".tel-errors");
 
 function formListener(form) {
   form.addEventListener("submit", (event) => {
@@ -198,38 +156,52 @@ function createOrder(formDataObject) {
       toggleLoader();
 
       if (!response.ok) {
-        throw new Error();
+        const errorMessage =
+          response.status === 404
+            ? "Не правильно заполнены поля"
+            : "Что-то пошло не так";
+        throw new Error(errorMessage);
       }
+      // Как обработать результат, чтобы попасть в ошибку?
 
-      toggleLoader();
       return response.json();
     })
     .then(createOrderOkHandler)
-    .catch(createOrderErrorHandler);
+    .catch(createOrderErrorHandler)
+    .finally(toggleLoader);
 }
 
 function toggleLoader() {
   loader.classList.toggle("visually-hidden");
 }
 
+// Пока не поняла нужна ли эта функция
+// function inputsClear() {
+//   inputs.forEach((input) => {
+//     input.value = "";
+//   });
+// }
+
 function createOrderOkHandler(json) {
   resultElement.classList.toggle("visually-hidden");
-  resultElement.innerHTML = json.message;
+  resultTextElement.innerHTML = json.message;
 }
 
 function createOrderErrorHandler(error) {
-  resultElement.innerHTML = error.message;
+  telEerrorsElements.forEach((element) => element.classList.toggle("show"));
+  // Когда убирать этот элемент?
 }
 
 // Инициализация слушателей для обеих форм
 createPostForms.forEach((form) => formListener(form));
 
-// Установим неактивную кнопку отправки при невалидной форме
-function checkValidity(event) {
-  const formNode = event.target.form;
-  const isValid = formNode.checkValidity();
+// Закрытие окна с положительным результатом отправки
 
-  formNode.querySelectorAll("data__form-button").disabled = !isValid;
-}
-
-createPostForms.addEventListener("input", checkValidity);
+window.addEventListener(`keydown`, (e) => {
+  if (e.key === "Escape") {
+    resultElement.classList.add("visually-hidden");
+  }
+});
+resultCloseElement.addEventListener("click", (e) => {
+  resultElement.classList.add("visually-hidden");
+});
