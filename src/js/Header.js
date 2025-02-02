@@ -117,11 +117,13 @@ function openModal() {
   }
 }
 
-function closeModal() {
+function closeModal(e) {
+  // debugger;
   if (isOpenModal) {
     isOpenModal = false;
-    // e.currentTarget.classList.remove("open");
-    document.getElementById("modal").classList.remove("open");
+    (e?.currentTarget ?? document.getElementById("modal")).classList.remove(
+      "open"
+    );
   }
 }
 
@@ -140,13 +142,12 @@ window.addEventListener(`keydown`, (e) => {
 
 document.querySelector("#modal .modal-box").addEventListener("click", (e) => {
   e._isClickWithInModal = true;
-  isOpenModal = false;
 });
 
 document.getElementById("modal").addEventListener("click", (e) => {
   if (e._isClickWithInModal) return;
-  e.currentTarget.classList.remove("open");
-  closeModal();
+
+  closeModal(e);
 });
 
 // пишу коментарий что это такое и зачем
@@ -170,58 +171,34 @@ toggleVisibility();
 
 // Совершение запрос
 async function sendRequest(phoneNumber, name) {
-  //   {
-  //     "statusCode": 400,
-  //     "error": "Bad Request",
-  //     "message": "Validation Error",
-  //     "extensions": {
-  //         "code": "VALIDATION_ERROR",
-  //         "message": "Validation Error",
-  //         "fields": [
-  //             {
-  //                 "name": "phoneNumber",
-  //                 "message": "Неверный номер телефона"
-  //             }
-  //         ]
-  //     }
-  // }
+  const response = await fetch("http://localhost:5000/order", {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json;charset=utf-8",
+    },
+    body: JSON.stringify({
+      phoneNumber,
+      name,
+      __test_delay: 2_000,
+    }),
+  });
 
-  try {
-    const response = await fetch("http://localhost:5000/order", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json;charset=utf-8",
-      },
-      body: JSON.stringify({
-        phoneNumber,
-        name,
-        __test_delay: 2_000,
-      }),
-    });
+  const payload = await response.json();
 
-    const payload = await response.json();
-
-    if (!response.ok) {
-      if (payload.extensions?.code === "VALIDATION_ERROR") {
-        if (
-          !Array.isArray(payload.extensions.fields) ||
-          payload.extensions.fields.length === 0
-        ) {
-          throw new ValidationError(null, payload.extensions.message);
-        }
-
-        throw new ValidationError(payload.extensions.fields);
+  if (!response.ok) {
+    if (payload.extensions?.code === "VALIDATION_ERROR") {
+      if (
+        !Array.isArray(payload.extensions.fields) ||
+        payload.extensions.fields.length === 0
+      ) {
+        throw new ValidationError(null, payload.extensions.message);
       }
-    }
 
-    return payload;
-  } catch (error) {
-    if (error instanceof BaseError) {
-      throw error;
+      throw new ValidationError(payload.extensions.fields);
     }
-
-    throw UnexpectedError(undefined, error);
   }
+
+  return payload;
 }
 
 // IDLE -- ничего не происходит
@@ -292,14 +269,29 @@ function succeededStage(result, form) {
 
   const resultElement = document.querySelector(".result");
   const resultTextElement = document.querySelector(".result-text");
-  resultElement.classList.toggle("visually-hidden");
+  resultElement.classList.remove("hide");
+  resultElement.classList.add("show");
+
   resultTextElement.innerText = result.message;
   // Закрыть модалку
-  debugger;
   console.log(result);
   closeModal();
+  inputsClear(form);
 }
 
+// function inputsClear(form) {
+//   const inputs = [...form.querySelectorAll("[data-js-input]")].map(
+//     (e) => (e.value = "")
+//   );
+//   debugger;
+// }
+function inputsClear(form) {
+  const inputs = form.querySelectorAll("[data-js-input]");
+  inputs.forEach((input) => {
+    input.value = ""; // Очищаем значение
+    input.validity.valid = true; // Сбрасываем состояние валидации
+  });
+}
 //
 // FAILED
 //
@@ -389,11 +381,13 @@ const resultCloseElement = document.querySelector(".result-close");
 
 window.addEventListener(`keydown`, (e) => {
   if (e.key === "Escape") {
-    resultElement.classList.add("visually-hidden");
+    resultElement.classList.remove("show ");
+    resultElement.classList.add("hide");
   }
 });
 resultCloseElement.addEventListener("click", (e) => {
-  resultElement.classList.add("visually-hidden");
+  resultElement.classList.remove("show");
+  resultElement.classList.add("hide");
 });
 
 // [...document.querySelectorAll(".data__form")].map((formE) => {
