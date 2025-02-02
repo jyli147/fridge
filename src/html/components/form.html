@@ -1,5 +1,5 @@
 <h4 class="form__title">Оставьте заявку для бесплатной консультации</h4>
-<form class="data__form data__form-modal" name="form" method="POST">
+<form class="data__form data__form-modal" name="form" method="POST" novalidate>
   <p class="field">
     <label class="data__form-overtext" for="tel"
       >Номер телефона
@@ -12,7 +12,7 @@
         required
         aria-describedby="tel-errors"
         autocomplete="off"
-        minlength="11"
+        minlength="1"
         maxlength="12"
       />
       <span class="tel-errors">Неправильный формат</span>
