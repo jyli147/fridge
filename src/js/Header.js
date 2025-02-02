@@ -120,7 +120,8 @@ function openModal() {
 function closeModal() {
   if (isOpenModal) {
     isOpenModal = false;
-    e.currentTarget.classList.remove("open");
+    // e.currentTarget.classList.remove("open");
+    document.getElementById("modal").classList.remove("open");
   }
 }
 
@@ -144,7 +145,7 @@ document.querySelector("#modal .modal-box").addEventListener("click", (e) => {
 
 document.getElementById("modal").addEventListener("click", (e) => {
   if (e._isClickWithInModal) return;
-
+  e.currentTarget.classList.remove("open");
   closeModal();
 });
 
