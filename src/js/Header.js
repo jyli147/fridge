@@ -22,6 +22,7 @@ class UnexpectedError extends BaseError {
   }
 }
 
+// Работа с header
 class Header {
   selectors = {
     root: "[data-js-header]",
@@ -110,13 +111,14 @@ new Header();
 // Модальное окно
 let isOpenModal = false;
 
+// Открытие модального окна
 function openModal() {
   if (!isOpenModal) {
     isOpenModal = true;
     document.getElementById("modal").classList.add("open");
   }
 }
-
+// Закрытие модального окна
 function closeModal(e) {
   // debugger;
   if (isOpenModal) {
@@ -128,29 +130,32 @@ function closeModal(e) {
 }
 
 // обработчики модального окна
+// Открытие
 document.querySelectorAll("[data-js-button]").forEach((button) => {
   button.addEventListener("click", function () {
     openModal();
   });
 });
 
+// Закрытие по Escape
 window.addEventListener(`keydown`, (e) => {
   if (e.key === "Escape") {
     closeModal();
   }
 });
 
+// Закрытие по клику вне поля модалки
 document.querySelector("#modal .modal-box").addEventListener("click", (e) => {
   e._isClickWithInModal = true;
 });
-
 document.getElementById("modal").addEventListener("click", (e) => {
   if (e._isClickWithInModal) return;
 
   closeModal(e);
 });
 
-// пишу коментарий что это такое и зачем
+// Сохранение полей в инпуте, чтобы при фокусеровке и написании текста иконка телефона и человека не пропадали.
+// Работа с полями инпутов
 const inputs = document.querySelectorAll("[data-js-input]");
 const nameLabels = document.querySelectorAll("[data-js-name]");
 
@@ -269,7 +274,7 @@ function succeededStage(result, form) {
 
   const resultElement = document.querySelector(".result");
   const resultTextElement = document.querySelector(".result-text");
-  resultElement.classList.add("show ");
+  resultElement.classList.add("show");
   debugger;
   resultTextElement.innerText = result.message;
   // Закрыть модалку
@@ -278,6 +283,7 @@ function succeededStage(result, form) {
   inputsClear(form);
 }
 
+// Очищение полей инпутов. Проблема после очищения, валидация становится отрицательной
 function inputsClear(form) {
   const inputs = form.querySelectorAll("[data-js-input]");
   inputs.forEach((input) => {
@@ -372,13 +378,28 @@ function failedStageUpdateUiShowGlobalErrorInUI(message) {
 const resultElement = document.querySelector(".result");
 const resultCloseElement = document.querySelector(".result-close");
 
+// Закрытие по Escape
 window.addEventListener(`keydown`, (e) => {
   if (e.key === "Escape") {
-    resultElement.classList.remove("show ");
+    resultElement.classList.remove("show");
   }
 });
+
+// Закрытие про крестику
 resultCloseElement.addEventListener("click", (e) => {
-  resultElement.classList.remove("show ");
+  resultElement.classList.remove("show");
+});
+
+// Закрытие по клику вне поля
+document
+  .querySelector("#result .result-container")
+  .addEventListener("click", (e) => {
+    e._isClickWithInModals = true;
+  });
+
+resultElement.addEventListener("click", (e) => {
+  if (e._isClickWithInModals) return;
+  e.currentTarget.classList.remove("show");
 });
 
 // [...document.querySelectorAll(".data__form")].map((formE) => {

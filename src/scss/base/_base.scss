@@ -78,14 +78,6 @@ html {
   }
 }
 
-.show {
-  @include show;
-}
-
-.hide {
-  @include hide;
-}
-
 .visible-mobile {
   @include mobile-above {
     display: none !important;

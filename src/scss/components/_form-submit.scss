@@ -17,10 +17,6 @@
     opacity: 0;
     visibility: hidden;
 
-    &.show {
-        opacity: 1;
-        visibility: visible;
-    }
 
     &-container {
         display: flex;
@@ -62,6 +58,11 @@
         text-align: center;
         color: var(--color-theme-sys-light-on-background);
     }
+}
+
+.result.show {
+    opacity: 1;
+    visibility: visible;
 }
 
 .loader {
