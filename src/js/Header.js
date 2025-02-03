@@ -269,8 +269,8 @@ function succeededStage(result, form) {
 
   const resultElement = document.querySelector(".result");
   const resultTextElement = document.querySelector(".result-text");
-  resultElement.classList.toggle("show ");
-
+  resultElement.classList.add("show ");
+  debugger;
   resultTextElement.innerText = result.message;
   // Закрыть модалку
   console.log(result);
@@ -278,12 +278,6 @@ function succeededStage(result, form) {
   inputsClear(form);
 }
 
-// function inputsClear(form) {
-//   const inputs = [...form.querySelectorAll("[data-js-input]")].map(
-//     (e) => (e.value = "")
-//   );
-//   debugger;
-// }
 function inputsClear(form) {
   const inputs = form.querySelectorAll("[data-js-input]");
   inputs.forEach((input) => {
@@ -380,11 +374,11 @@ const resultCloseElement = document.querySelector(".result-close");
 
 window.addEventListener(`keydown`, (e) => {
   if (e.key === "Escape") {
-    resultElement.classList.toggle("show ");
+    resultElement.classList.remove("show ");
   }
 });
 resultCloseElement.addEventListener("click", (e) => {
-  resultElement.classList.toggle("show ");
+  resultElement.classList.remove("show ");
 });
 
 // [...document.querySelectorAll(".data__form")].map((formE) => {
