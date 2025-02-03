@@ -269,8 +269,7 @@ function succeededStage(result, form) {
 
   const resultElement = document.querySelector(".result");
   const resultTextElement = document.querySelector(".result-text");
-  resultElement.classList.remove("hide");
-  resultElement.classList.add("show");
+  resultElement.classList.toggle("show ");
 
   resultTextElement.innerText = result.message;
   // Закрыть модалку
@@ -381,13 +380,11 @@ const resultCloseElement = document.querySelector(".result-close");
 
 window.addEventListener(`keydown`, (e) => {
   if (e.key === "Escape") {
-    resultElement.classList.remove("show ");
-    resultElement.classList.add("hide");
+    resultElement.classList.toggle("show ");
   }
 });
 resultCloseElement.addEventListener("click", (e) => {
-  resultElement.classList.remove("show");
-  resultElement.classList.add("hide");
+  resultElement.classList.toggle("show ");
 });
 
 // [...document.querySelectorAll(".data__form")].map((formE) => {
